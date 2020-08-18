@@ -1,0 +1,14 @@
+inherit_from:
+  - .rubocop_todo.yml
+  - https://raw.githubusercontent.com/makersacademy/scaffolint/v1.1.0/.rubocop.yml
+require: 
+  - rubocop-rails
+  - rubocop-rspec
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - 'node_modules/**/*'
+    - 'config/initializers/*'
+    - 'config/environments/*'
