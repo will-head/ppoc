@@ -1,7 +1,9 @@
 language: ruby
 services:
 - postgresql
-
+cache:
+  directories: 
+    - node_modules
 install:
 - bundle install
 - bundle exec rake db:create
