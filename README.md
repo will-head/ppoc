@@ -1,22 +1,24 @@
-# Set default branch to main
+# README
 
-```bash
-git branch -m master main
-git push origin main
-```
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-* On GitHub: Settings > Branches > Default branch, set to main > Update
+Things you may want to cover:
 
-```bash
-git push origin :master
-git remote set-head origin main
-git push origin HEAD:main
-git branch --unset-upstream
-git push --set-upstream origin main
-```
+* Ruby version
 
-# Make template
+* System dependencies
 
-* On GitHub: Settings > tick Template repository
+* Configuration
 
-You can now use this as a template when you create a new repository.
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
