@@ -1,4 +1,4 @@
 class FeedsController < ApplicationController
-  def feed
+  def create
   end
 end
