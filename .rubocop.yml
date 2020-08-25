@@ -12,3 +12,4 @@ AllCops:
     - 'node_modules/**/*'
     - 'config/initializers/*'
     - 'config/environments/*'
+    - 'spec/contract/**/*'
