@@ -34,6 +34,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
+  gem 'rambo_ruby', '~> 0.7'
   gem 'rspec-rails', '~> 3.5'
   gem 'rubocop', '0.79.0'
   gem 'rubocop-rails'
