@@ -1,0 +1,49 @@
+#%RAML 1.0
+---
+title: Podcast Player of Choice
+baseUri: https://ppoc.dev
+
+/feeds:
+  post:
+    description: Returns feeds for podcast player of choice, given a feed
+    headers:
+      Content-Type: application/json
+    body:
+      application/json:
+        schema: |
+          {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "type": "object",
+            "required": [ "data" ],
+            "additionalProperties": false,
+            "properties": {
+              "data": {
+                "type": "object",
+                "required": [ "feed" ],
+                "properties": {
+                  "feed": { "type": "string" }
+                }
+              }
+            }
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            schema: |
+              {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "request": {
+                    "type": "object",
+                    "properties": {
+                      "feed": { "type": "string" }
+                      }
+                    }
+                  },
+                  "itunes": { "type": "string" },
+                  "overcast": { "type": "string" }
+                }
+              }
