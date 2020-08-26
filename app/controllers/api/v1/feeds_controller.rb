@@ -17,6 +17,10 @@ module Api::V1
           feed:  profile_params.fetch(:feed)
         },
         desktop: {
+          default: {
+            feed_title: "Default",
+            feed_url: @feed.feed
+          },
           rss: {
             feed_title: "RSS",
             feed_url: @feed.http
