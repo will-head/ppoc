@@ -26,7 +26,7 @@ module Api::V1
           },
           apple_podcasts: {
             feed_title: "Apple Podcasts",
-            feed_url: "podcast://example.com/feed"
+            feed_url: @feed.podcast
           }
         },
         ios: {},
