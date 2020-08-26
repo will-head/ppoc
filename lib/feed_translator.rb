@@ -19,6 +19,10 @@ class FeedTranslator
     replace_scheme(@uri, __method__.to_s)
   end
 
+  def podcast
+    replace_scheme(@uri, __method__.to_s)
+  end
+
   private
 
   def replace_scheme(uri, scheme)

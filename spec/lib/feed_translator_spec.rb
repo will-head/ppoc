@@ -25,4 +25,10 @@ describe FeedTranslator do
     end
   end
 
+  describe "#podcast" do
+    it "returns podcast://example.com/feed" do
+      expect(feed.podcast).to eq("podcast://example.com/feed")
+    end
+  end
+
 end
