@@ -10,7 +10,10 @@ module Api::V1
       {
         request: {
           feed:  profile_params.fetch(:feed)
-        }
+        },
+        desktop: {},
+        ios: {},
+        android: {}
       }
     end
 
