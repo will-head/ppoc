@@ -40,12 +40,12 @@ module Api::V1
             feed_url: @feed.feed
           }, 
           apple_podcasts: {
-            feed_title: "",
-            feed_url: ""
+            feed_title: "Apple Podcasts",
+            feed_url: @feed.podcast
           }, 
           overcast: {
-            feed_title: "",
-            feed_url: ""
+            feed_title: "Overcast",
+            feed_url: "overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed"
           }, 
           castro: {
             feed_title: "",
