@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
+    scope :module => :v1, &current_api_routes
     namespace :v1, &current_api_routes
   end
 end
