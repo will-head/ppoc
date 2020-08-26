@@ -31,4 +31,10 @@ describe FeedTranslator do
     end
   end
 
+  describe "#pcast" do
+    it "returns pcast://example.com/feed" do
+      expect(feed.pcast).to eq("pcast://example.com/feed")
+    end
+  end
+
 end

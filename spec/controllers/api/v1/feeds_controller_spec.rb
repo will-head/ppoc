@@ -93,6 +93,13 @@ RSpec.describe Api::V1::FeedsController, type: :controller do
         expect(json_body["desktop"]["default"].keys).to contain_exactly("feed_title", "feed_url")
       end
 
+      it "android has default key" do
+        expect(json_body["android"].keys).to contain_exactly("default")
+      end
+
+      it "android default key has feed_title and feed_url keys" do
+        expect(json_body["android"]["default"].keys).to contain_exactly("feed_title", "feed_url")
+      end
     end
 
     context "with different players" do
@@ -137,6 +144,15 @@ RSpec.describe Api::V1::FeedsController, type: :controller do
       it "desktop apple_podcasts feed_url value is podcast://example.com/feed" do
         expect(json_body["desktop"]["apple_podcasts"]["feed_url"]).to eq("podcast://example.com/feed")
       end
+
+      it "android default feed_title value is Default" do
+        expect(json_body["android"]["default"]["feed_title"]).to eq("Default")
+      end
+
+      it "android default feed_url value is pcast://example.com/feed" do
+        expect(json_body["android"]["default"]["feed_url"]).to eq("pcast://example.com/feed")
+      end
+
     end
   end
 end

@@ -35,7 +35,12 @@ module Api::V1
           }
         },
         ios: {},
-        android: {}
+        android: {
+          default: {
+            feed_title: "Default",
+            feed_url: @feed.pcast           
+          }
+        }
       }
     end
     # rubocop:enable Metrics/MethodLength
