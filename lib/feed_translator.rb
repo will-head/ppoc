@@ -12,20 +12,12 @@ class FeedTranslator
   end
 
   def feed
-    replace_scheme(@uri, __method__.to_s)
+    replace_scheme(@uri, __callee__.to_s)
   end
 
-  def itpc
-    replace_scheme(@uri, __method__.to_s)
-  end
-
-  def podcast
-    replace_scheme(@uri, __method__.to_s)
-  end
-
-  def pcast
-    replace_scheme(@uri, __method__.to_s)
-  end
+  alias_method :itpc, :feed
+  alias_method :podcast, :feed
+  alias_method :pcast, :feed
 
   private
 
