@@ -7,6 +7,8 @@ RSpec.describe "non-version api", :type => :request do
 
   it "redirects to latest version" do
     post "/api/feeds", :params => request_body
-    expect(response).to have_http_status(:ok)
+    # expect(response).to have_http_status(:ok)
+    puts response.headers
+    expect(response.headers["Version"]).to eq("V1")
   end
 end
