@@ -22,7 +22,7 @@ module Api::V1
           },
           itunes: {
             feed_title: "iTunes",
-            feed_url: "itpc://example.com/feed"
+            feed_url: @feed.itpc
           },
           apple_podcasts: {
             feed_title: "Apple Podcasts",

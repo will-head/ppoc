@@ -13,9 +13,16 @@ describe FeedTranslator do
     end
   end
 
+  describe "#feed" do
+    it "returns feed://example.com/feed" do
+      expect(feed.feed).to eq("feed://example.com/feed")
+    end
+  end
+
   describe "#itpc" do
     it "returns itpc://example.com/feed" do
       expect(feed.itpc).to eq("itpc://example.com/feed")
     end
   end
+
 end
