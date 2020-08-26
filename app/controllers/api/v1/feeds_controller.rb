@@ -1,25 +1,23 @@
-module Api
-  module V1
-    class FeedsController < ApplicationController
-      def create
-        render json: body
-      end
+module Api::V1
+  class FeedsController < ApiController
+    def create
+      render json: body
+    end
 
-      protected
+    protected
 
-      def body
-        {
-          request: {
-            feed:  profile_params.fetch(:feed)
-          }
+    def body
+      {
+        request: {
+          feed:  profile_params.fetch(:feed)
         }
-      end
+      }
+    end
 
-      def profile_params
-        params
-          .require(:data)
-          .permit(:feed)
-      end
+    def profile_params
+      params
+        .require(:data)
+        .permit(:feed)
     end
   end
 end
