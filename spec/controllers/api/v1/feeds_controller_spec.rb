@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::FeedsController, type: :controller do
   describe "POST #create" do
+    let(:feed) { "http://example.com/feed" }
     let(:request_body) { 
-      { data: { feed: "http://feeds.frackulous.com/frackulous/sd/" } } 
+      { data: { feed: feed } } 
     }
 
     before(:each) do
