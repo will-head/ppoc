@@ -10,6 +10,7 @@ module Api::V1
 
     protected
 
+    # rubocop:disable Metrics/MethodLength
     def body
       {
         request: {
@@ -33,6 +34,7 @@ module Api::V1
         android: {}
       }
     end
+    # rubocop:enable Metrics/MethodLength
 
     def profile_params
       params
