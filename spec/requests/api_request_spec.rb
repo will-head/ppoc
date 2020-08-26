@@ -2,9 +2,9 @@ require "rails_helper"
 
 RSpec.describe "non-version api", :type => :request do
   let(:latest_version) { "V1" }
-  let(:feed) { "http://example.com/feed" }
+  let(:source_feed) { "http://example.com/feed" }
   let(:request_body) { 
-    { data: { feed: feed } } 
+    { data: { feed: source_feed } } 
   }
 
   it "redirects to latest version" do
