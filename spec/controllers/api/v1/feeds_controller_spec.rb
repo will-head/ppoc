@@ -15,7 +15,7 @@ RSpec.describe Api::V1::FeedsController, type: :controller do
     end
 
     it "has a request, desktop, ios and android keys" do
-      expect(JSON.parse(response.body).keys).to contain_exactly("request", "desktop", "ios", "android")
+      expect(json_body.keys).to contain_exactly("request", "desktop", "ios", "android")
     end
   end
 end
