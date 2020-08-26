@@ -34,7 +34,32 @@ module Api::V1
             feed_url: @feed.podcast
           }
         },
-        ios: {},
+        ios: {
+          default: {
+            feed_title: "Default",
+            feed_url: @feed.feed
+          }, 
+          apple_podcasts: {
+            feed_title: "",
+            feed_url: ""
+          }, 
+          overcast: {
+            feed_title: "",
+            feed_url: ""
+          }, 
+          castro: {
+            feed_title: "",
+            feed_url: ""
+          }, 
+          pocket_casts: {
+            feed_title: "",
+            feed_url: ""
+          }, 
+          downcast: {
+            feed_title: "",
+            feed_url: ""
+          }
+        },
         android: {
           default: {
             feed_title: "Default",
