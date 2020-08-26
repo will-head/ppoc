@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FeedsController, type: :controller do
+RSpec.describe Api::V1::FeedsController, type: :controller do
   describe "POST #create" do
     let(:request_body) { 
       { data: { feed: "http://feeds.frackulous.com/frackulous/sd/" } } 
