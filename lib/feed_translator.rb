@@ -4,7 +4,7 @@ class FeedTranslator
     @feed_url = feed_url
   end
 
-  def rss
+  def http
     @feed_url
   end
 

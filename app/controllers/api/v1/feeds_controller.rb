@@ -18,7 +18,7 @@ module Api::V1
         desktop: {
           rss: {
             feed_title: "RSS",
-            feed_url: @feed.rss
+            feed_url: @feed.http
           },
           itunes: {
             feed_title: "iTunes",
