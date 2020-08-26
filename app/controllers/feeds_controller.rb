@@ -9,8 +9,7 @@ class FeedsController < ApplicationController
     {
       request: {
         feed:  profile_params.fetch(:feed)
-      },
-      # itunes: profile_params.fetch(:feed)
+      }
     }
   end
 

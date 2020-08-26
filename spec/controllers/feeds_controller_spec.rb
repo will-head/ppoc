@@ -6,7 +6,7 @@ RSpec.describe FeedsController, type: :controller do
       { data: { feed: "http://feeds.frackulous.com/frackulous/sd/" } } 
     }
    
-    it "returns http success" do
+    it "returns http 200" do
       post :create, :params => request_body
       expect(response).to have_http_status(200)
     end
