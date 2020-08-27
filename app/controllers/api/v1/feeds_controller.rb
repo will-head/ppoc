@@ -45,7 +45,7 @@ module Api::V1
           }, 
           overcast: {
             feed_title: "Overcast",
-            feed_url: "overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed"
+            feed_url: @feed.overcast
           }, 
           castro: {
             feed_title: "Castro",
