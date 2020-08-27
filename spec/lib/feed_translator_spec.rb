@@ -43,6 +43,12 @@ describe FeedTranslator do
     end
   end
 
+  describe "#pktc" do
+    it "returns pktc://subscribe/example.com/feed" do
+      expect(feed.pktc).to eq("pktc://subscribe/example.com/feed")
+    end
+  end
+
   describe "#downcast" do
     it "returns downcast://example.com/feed" do
       expect(feed.downcast).to eq("downcast://example.com/feed")
