@@ -3,7 +3,7 @@ require 'cgi'
 
 class FeedTranslator
   attr_reader :feed_url
-  
+
   def initialize(feed_url)
     @feed_url = feed_url
     @uri = Addressable::URI.parse(feed_url)
