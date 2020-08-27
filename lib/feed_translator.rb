@@ -24,9 +24,7 @@ class FeedTranslator
     replace_scheme(@uri, __callee__.to_s, "subscribe/")
   end
 
-  def pktc
-    replace_scheme(@uri, __callee__.to_s, "subscribe/")
-  end
+  alias_method :pktc, :castro
 
   private
 
