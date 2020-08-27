@@ -18,6 +18,7 @@ class FeedTranslator
   alias_method :itpc, :feed
   alias_method :podcast, :feed
   alias_method :pcast, :feed
+  alias_method :downcast, :feed
 
   private
 

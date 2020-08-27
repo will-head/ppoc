@@ -37,4 +37,10 @@ describe FeedTranslator do
     end
   end
 
+  describe "#downcast" do
+    it "returns downcast://example.com/feed" do
+      expect(feed.downcast).to eq("downcast://example.com/feed")
+    end
+  end
+
 end
