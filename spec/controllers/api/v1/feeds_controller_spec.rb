@@ -177,6 +177,30 @@ RSpec.describe Api::V1::FeedsController, type: :controller do
         expect(json_body["ios"]["overcast"]["feed_url"]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
       end
 
+      it "ios castro feed_title value is Castro" do
+        expect(json_body["ios"]["castro"]["feed_title"]).to eq("Castro")
+      end
+
+      it "ios castro feed_url value is castro://subscribe/example.com/feed" do
+        expect(json_body["ios"]["castro"]["feed_url"]).to eq("castro://subscribe/example.com/feed")
+      end
+
+      it "ios pocket_casts feed_title value is Pocket Casts" do
+        expect(json_body["ios"]["pocket_casts"]["feed_title"]).to eq("Pocket Casts")
+      end
+
+      it "ios pocket_casts feed_url value is pktc://subscribe/example.com/feed" do
+        expect(json_body["ios"]["pocket_casts"]["feed_url"]).to eq("pktc://subscribe/example.com/feed")
+      end
+
+      it "ios downcast feed_title value is Downcast" do
+        expect(json_body["ios"]["downcast"]["feed_title"]).to eq("Downcast")
+      end
+
+      it "ios downcast feed_url value is downcast://example.com/feed" do
+        expect(json_body["ios"]["downcast"]["feed_url"]).to eq("downcast://example.com/feed")
+      end
+
       it "android default feed_title value is Default" do
         expect(json_body["android"]["default"]["feed_title"]).to eq("Default")
       end

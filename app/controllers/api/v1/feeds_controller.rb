@@ -48,16 +48,16 @@ module Api::V1
             feed_url: "overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed"
           }, 
           castro: {
-            feed_title: "",
-            feed_url: ""
+            feed_title: "Castro",
+            feed_url: "castro://subscribe/example.com/feed"
           }, 
           pocket_casts: {
-            feed_title: "",
-            feed_url: ""
+            feed_title: "Pocket Casts",
+            feed_url: "pktc://subscribe/example.com/feed"
           }, 
           downcast: {
-            feed_title: "",
-            feed_url: ""
+            feed_title: "Downcast",
+            feed_url: "downcast://example.com/feed"
           }
         },
         android: {
