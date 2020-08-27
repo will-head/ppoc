@@ -20,10 +20,18 @@ class FeedTranslator
   alias_method :pcast, :feed
   alias_method :downcast, :feed
 
+  def castro
+    replace_scheme(@uri, __callee__.to_s, "subscribe/")
+  end
+
   private
 
-  def replace_scheme(uri, scheme)
+  def replace_scheme(uri, scheme, prefix = "")
     uri.scheme = scheme
+    if prefix != "" 
+      split = uri.to_s.split('://')
+      return split[0] + "://" + prefix + split[1]
+    end
     uri.to_s
   end
 end

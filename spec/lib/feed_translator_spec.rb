@@ -37,6 +37,12 @@ describe FeedTranslator do
     end
   end
 
+  describe "#castro" do
+    it "returns castro://subscribe/example.com/feed" do
+      expect(feed.castro).to eq("castro://subscribe/example.com/feed")
+    end
+  end
+
   describe "#downcast" do
     it "returns downcast://example.com/feed" do
       expect(feed.downcast).to eq("downcast://example.com/feed")
