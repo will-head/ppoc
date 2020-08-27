@@ -8,11 +8,11 @@ class FeedTranslator
   end
 
   def format_feed_with_new_scheme
-    replace_scheme(@uri, __callee__.to_s)
+    replace_feed_scheme(@uri, __callee__.to_s)
   end
 
   def format_feed_with_new_scheme_add_subscribe
-    add_subscribe_prefix_to_feed(replace_scheme(@uri, __callee__.to_s))
+    add_subscribe_prefix_to_feed(replace_feed_scheme(@uri, __callee__.to_s))
   end
 
   def format_feed_with_new_scheme_add_x_callback_url
@@ -36,18 +36,18 @@ class FeedTranslator
 
   private
 
-  def replace_scheme(uri, scheme)
+  def replace_feed_scheme(uri, scheme)
     uri.scheme = scheme
     uri.to_s
-  end
-
-  def add_subscribe_prefix_to_feed(uri)
-    add_prefix_to_feed(uri, "subscribe/")
   end
 
   def add_prefix_to_feed(uri, prefix)
     split = uri.to_s.split('://')
     split[0] + "://" + prefix + split[1]
+  end
+
+  def add_subscribe_prefix_to_feed(uri)
+    add_prefix_to_feed(uri, "subscribe/")
   end
 
   private :format_feed_with_new_scheme, :format_feed_with_new_scheme_add_subscribe, \
