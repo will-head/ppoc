@@ -55,4 +55,10 @@ describe FeedTranslator do
     end
   end
 
+  describe "#overcast" do
+    it "returns overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed" do
+      expect(feed.overcast).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+    end
+  end
+
 end
