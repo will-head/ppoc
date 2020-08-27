@@ -49,15 +49,15 @@ module Api::V1
           }, 
           castro: {
             feed_title: "Castro",
-            feed_url: "castro://subscribe/example.com/feed"
+            feed_url: @feed.castro
           }, 
           pocket_casts: {
             feed_title: "Pocket Casts",
-            feed_url: "pktc://subscribe/example.com/feed"
+            feed_url: @feed.pktc
           }, 
           downcast: {
             feed_title: "Downcast",
-            feed_url: "downcast://example.com/feed"
+            feed_url: @feed.downcast
           }
         },
         android: {
