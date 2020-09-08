@@ -124,4 +124,4 @@ On success, the above command returns JSON structured like this:
 * Validate feed url
 * Add rate limiting
 * Add CORS
-* Refactor add_prefix_to_feed to use sub/[]=
+* ~~Refactor add_prefix_to_feed to use sub/[]=~~ Faster to use split
