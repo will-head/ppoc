@@ -29,7 +29,9 @@ $ rspec && rubocop
 
 ## Approach
 
-The backend uses Rails and outputs JSON.  It's set to automatically deploy to [https://ppoc.dev/](https://ppoc.dev/) when continuous integration tests on [Travis](https://travis-ci.com/) pass.
+The backend uses Rails and outputs JSON.  It's set to automatically deploy to [https://ppoc.dev/](https://ppoc.dev/) when continuous integration tests on [Travis](https://travis-ci.com/github/will-head/ppoc) pass.
+
+## API
 
 The API includes versioning in the url scheme. The current version is v1, accessible at:  
 https://ppoc.dev/api/v1/
@@ -37,16 +39,89 @@ https://ppoc.dev/api/v1/
 Any calls without versioning will redirect to the latest version:  
 https://ppoc.dev/api/
 
-## API
+The API version is included in the header, for example:  
+version: V1
 
 ### Feeds
 
 #### POST `/feeds`
 
+Returns feeds
 
+```bash
+curl --request POST \
+  --url https://ppoc.dev/api/v1/feeds \
+  --header 'content-type: application/json' \
+  --data '{
+	"data": {
+		"feed": "http://example.com/feed"
+	}
+}'
+```
+
+On success, the above command returns JSON structured like this:
+```json
+{
+  "request": {
+    "feed": "http://example.com/feed"
+  },
+  "desktop": {
+    "default": {
+      "feed_title": "Default",
+      "feed_url": "feed://example.com/feed"
+    },
+    "rss": {
+      "feed_title": "RSS",
+      "feed_url": "http://example.com/feed"
+    },
+    "itunes": {
+      "feed_title": "iTunes",
+      "feed_url": "itpc://example.com/feed"
+    },
+    "apple_podcasts": {
+      "feed_title": "Apple Podcasts",
+      "feed_url": "podcast://example.com/feed"
+    }
+  },
+  "ios": {
+    "default": {
+      "feed_title": "Default",
+      "feed_url": "feed://example.com/feed"
+    },
+    "apple_podcasts": {
+      "feed_title": "Apple Podcasts",
+      "feed_url": "podcast://example.com/feed"
+    },
+    "overcast": {
+      "feed_title": "Overcast",
+      "feed_url": "overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed"
+    },
+    "castro": {
+      "feed_title": "Castro",
+      "feed_url": "castro://subscribe/example.com/feed"
+    },
+    "pocket_casts": {
+      "feed_title": "Pocket Casts",
+      "feed_url": "pktc://subscribe/example.com/feed"
+    },
+    "downcast": {
+      "feed_title": "Downcast",
+      "feed_url": "downcast://example.com/feed"
+    }
+  },
+  "android": {
+    "default": {
+      "feed_title": "Default",
+      "feed_url": "pcast://example.com/feed"
+    }
+  }
+}
+```
 
 ## Improvements
 
 * Redirect root to API documentation page on [podcastplayerofchoice.com](https://podcastplayerofchoice.com/)
 * Validate feed url
+* Add rate limiting
+* Add CORS
 * Refactor add_prefix_to_feed to use sub/[]=
