@@ -8,6 +8,15 @@ class FeedTranslator
     @uri = Addressable::URI.parse(@feed_url)
   end
 
+  def body
+    {
+      request: nil,
+      desktop: nil,
+      ios: nil,
+      android: nil
+    }
+  end
+
   def request
     { feed: @request }
   end
