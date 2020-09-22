@@ -7,6 +7,13 @@ describe FeedTranslator do
 
   let(:source_feed) { "http://example.com/feed" }
 
+  describe "#default" do
+    it "returns hash with feed_title: 'Default' and feed_url: 'feed://example.com/feed'" do
+      default = { :feed_title => "Default", :feed_url => "feed://example.com/feed" }
+      expect(feed.default).to eq(default)
+    end
+  end
+
   describe "#http" do
     it "returns http://example.com/feed" do
       expect(feed.http).to eq("http://example.com/feed")
