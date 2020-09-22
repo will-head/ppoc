@@ -20,16 +20,19 @@ class FeedTranslator
     
 
     # p prefix?(@request, "subscribe/")
-    @request = remove_subscribe_prefix_from_feed(@request)
+    # @request = remove_subscribe_prefix_from_feed(@request)
     uri = Addressable::URI.parse(@request)
 
-    return uri if uri.scheme.in?(VALID_SCHEMES)
+    # return uri if uri.scheme.in?(VALID_SCHEMES)
 
-    # if uri.scheme.in?(VALID_SCHEMES)
-    #   # check castro 
-    #   # p uri.host + uri.path
-    #   return uri
-    # end
+    if uri.scheme.in?(VALID_SCHEMES)
+      if prefix?(@request, "subscribe/")
+        uri = Addressable::URI.parse(remove_subscribe_prefix_from_feed(@request))
+      end
+      # check castro 
+      # p uri.host + uri.path
+      return uri
+    end
 
     false
     rescue Addressable::URI::InvalidURIError
