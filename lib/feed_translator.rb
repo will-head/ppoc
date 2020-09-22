@@ -2,8 +2,6 @@ require 'addressable/uri'
 require 'cgi'
 
 class FeedTranslator
-  attr_reader :feed_url
-
   def initialize(feed_url)
     @feed_url = feed_url
     @uri = Addressable::URI.parse(feed_url)
@@ -35,6 +33,8 @@ class FeedTranslator
     }
   end
 
+  private
+
   def format_feed_with_new_scheme
     replace_feed_scheme(@uri, __callee__.to_s)
   end
@@ -47,7 +47,9 @@ class FeedTranslator
     __callee__.to_s + "://x-callback-url/add?url=" + CGI::escape(@feed_url)
   end
 
-  alias_method :http, :feed_url
+  def http
+    @feed_url
+  end
 
   alias_method :feed, :format_feed_with_new_scheme
   alias_method :itpc, :format_feed_with_new_scheme
@@ -59,8 +61,6 @@ class FeedTranslator
   alias_method :pktc, :format_feed_with_new_scheme_add_subscribe
 
   alias_method :overcast, :format_feed_with_new_scheme_add_x_callback_url
-
-  private
 
   def replace_feed_scheme(uri, scheme)
     uri.scheme = scheme
@@ -75,7 +75,4 @@ class FeedTranslator
   def add_subscribe_prefix_to_feed(uri)
     add_prefix_to_feed(uri, "subscribe/")
   end
-
-  private :format_feed_with_new_scheme, :format_feed_with_new_scheme_add_subscribe, \
-          :format_feed_with_new_scheme_add_x_callback_url, :feed_url
 end
