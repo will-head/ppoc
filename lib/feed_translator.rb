@@ -47,10 +47,7 @@ class FeedTranslator
     __callee__.to_s + "://x-callback-url/add?url=" + CGI::escape(@feed_url)
   end
 
-  def http
-    @feed_url
-  end
-
+  alias_method :http, :format_feed_with_new_scheme
   alias_method :feed, :format_feed_with_new_scheme
   alias_method :itpc, :format_feed_with_new_scheme
   alias_method :podcast, :format_feed_with_new_scheme
