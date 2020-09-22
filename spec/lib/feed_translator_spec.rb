@@ -151,6 +151,12 @@ describe FeedTranslator do
     end
   end
 
+  describe "#android" do
+    it "includes :default key" do
+      expect(feed.android).to have_key(:default)
+    end
+  end
+
   # describe "#http" do
   #   it "returns http://example.com/feed" do
   #     expect(feed.http).to eq("http://example.com/feed")

@@ -29,6 +29,12 @@ class FeedTranslator
     }
   end
 
+  def android
+    {
+      default: {}
+    }
+  end
+
   def format_feed_with_new_scheme
     replace_feed_scheme(@uri, __callee__.to_s)
   end
