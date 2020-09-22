@@ -4,7 +4,7 @@ require 'feed_translator'
 describe FeedTranslator do
   subject(:feed) { described_class.new(source_feed) }
 
-  context "with valid request" do 
+  context "with http://example.com/feed" do 
     let(:source_feed) { "http://example.com/feed" }
 
     describe "#body" do
@@ -203,6 +203,14 @@ describe FeedTranslator do
 
     describe "empty string" do 
       let(:source_feed) { "" }
+
+      it "returns false" do 
+        expect(feed.valid_request?).to eq(false)
+      end
+    end
+
+    describe "invalid characters" do 
+      let(:source_feed) { "http:// <not valid>" }
 
       it "returns false" do 
         expect(feed.valid_request?).to eq(false)

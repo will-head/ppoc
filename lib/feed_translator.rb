@@ -5,13 +5,19 @@ class FeedTranslator
   def initialize(request)
     @request = request
     @feed_url = @request
-    @uri = Addressable::URI.parse(@feed_url)
+    # @uri = Addressable::URI.parse(@feed_url)
+    @uri = valid_request?
   end
 
   def valid_request?
-    return false if @request.is_a?(String) == false 
+    return false unless @request.is_a?(String)
     return false if @request.empty?
-      
+    
+    uri = Addressable::URI.parse(@request)
+    return uri
+
+    rescue Addressable::URI::InvalidURIError
+      false
   end
 
   def body
