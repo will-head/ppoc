@@ -9,7 +9,7 @@ class FeedTranslator
 
   def initialize(request)
     @request = request
-    @feed = ""
+    @feed = @request
     @uri = valid_request?
   end
 
@@ -25,7 +25,10 @@ class FeedTranslator
 
   def valid_scheme?(uri)
     if uri.scheme.in?(VALID_SCHEMES)
-      uri = Addressable::URI.parse(uri.query_values["url"]) if uri.scheme == "overcast"
+      if uri.scheme == "overcast"
+        uri = Addressable::URI.parse(uri.query_values["url"])
+        @feed = Addressable::URI.parse(@request).query_values["url"]
+      end
 
       if uri.scheme.in?(SUBSCRIBE_PREFIX)
         return false unless feed_prefix?(@request, "subscribe/")
@@ -33,7 +36,6 @@ class FeedTranslator
         uri = Addressable::URI.parse(remove_feed_prefix(@request, "subscribe/"))
       end      
 
-      @feed = @request
       return uri
     end
 
