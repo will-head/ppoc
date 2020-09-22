@@ -5,20 +5,10 @@ module Api::V1
 
     def create
       @feed = FeedTranslator.new(profile_params.fetch(:feed))
-      # render json: body
       render json: @feed.body
     end
 
     protected
-
-    # def body
-    #   {
-    #     request: { feed: profile_params.fetch(:feed) },
-    #     desktop: @feed.desktop,
-    #     ios: @feed.ios,
-    #     android: @feed.android
-    #   }
-    # end
 
     def profile_params
       params
