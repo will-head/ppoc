@@ -8,6 +8,11 @@ class FeedTranslator
     @uri = Addressable::URI.parse(@feed_url)
   end
 
+  def valid_request?
+    return false if @request.is_a?(String) == false 
+      
+  end
+
   def body
     {
       request: request,
@@ -48,7 +53,7 @@ class FeedTranslator
       default: { feed_title: "Default", feed_url: pcast }
     }
   end
-  
+
   def format_feed_with_new_scheme
     replace_feed_scheme(@uri, __callee__.to_s)
   end

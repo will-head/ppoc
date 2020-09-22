@@ -191,4 +191,14 @@ describe FeedTranslator do
       end
     end
   end
+
+  context "with invalid input" do 
+    describe "not a string" do 
+      let(:source_feed) { nil }
+
+      it "returns false" do 
+        expect(feed.valid_request?).to eq(false)
+      end
+    end
+  end
 end
