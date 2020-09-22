@@ -9,7 +9,6 @@ class FeedTranslator
 
   def initialize(request)
     @request = request
-    @feed_url = @request
     @uri = valid_request?
   end
 
@@ -86,7 +85,7 @@ class FeedTranslator
   end
 
   def format_feed_with_new_scheme_add_x_callback_url
-    __callee__.to_s + "://x-callback-url/add?url=" + CGI::escape(@feed_url)
+    __callee__.to_s + "://x-callback-url/add?url=" + CGI::escape(@request)
   end
 
   alias_method :http, :format_feed_with_new_scheme
