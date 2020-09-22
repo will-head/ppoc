@@ -10,6 +10,10 @@ class FeedTranslator
     @default = { :feed_title => "Default", :feed_url => feed }
   end
 
+  def desktop
+    { :default => @default }
+  end
+
   def format_feed_with_new_scheme
     replace_feed_scheme(@uri, __callee__.to_s)
   end

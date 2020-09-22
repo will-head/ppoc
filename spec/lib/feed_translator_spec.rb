@@ -7,6 +7,13 @@ describe FeedTranslator do
 
   let(:source_feed) { "http://example.com/feed" }
 
+  describe "#desktop" do
+    it "includes default key" do
+      # desktop = { :default => { :feed_title => "Default", :feed_url => "feed://example.com/feed" } }
+      expect(feed.desktop).to have_key(:default)
+    end
+  end
+
   describe "#default" do
     it "returns hash with feed_title: 'Default' and feed_url: 'feed://example.com/feed'" do
       default = { :feed_title => "Default", :feed_url => "feed://example.com/feed" }
