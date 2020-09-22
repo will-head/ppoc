@@ -10,10 +10,10 @@ class FeedTranslator
 
   def body
     {
-      request: nil,
-      desktop: nil,
-      ios: nil,
-      android: nil
+      request: request,
+      desktop: desktop,
+      ios: ios,
+      android: android
     }
   end
 
