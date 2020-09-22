@@ -192,15 +192,15 @@ describe FeedTranslator do
     end
   end
 
-  # context "with valid input" do 
-  #   describe "http scheme" do 
-  #     let(:source_feed) { "http://example.com/feed" }
+  context "with valid input" do 
+    describe "http scheme" do 
+      let(:source_feed) { "http://example.com/feed" }
 
-  #     it "returns truthy" do 
-  #       expect(feed.valid_request?).to be_truthy
-  #     end
-  #   end
-  # end
+      it "returns truthy" do 
+        expect(feed.valid_request?).to be_truthy
+      end
+    end
+  end
 
   context "with invalid input" do 
     describe "not a string" do 
