@@ -2,13 +2,14 @@ require 'addressable/uri'
 require 'cgi'
 
 class FeedTranslator
-  def initialize(feed_url)
-    @feed_url = feed_url
-    @uri = Addressable::URI.parse(feed_url)
+  def initialize(request)
+    @request = request
+    @feed_url = @request
+    @uri = Addressable::URI.parse(@feed_url)
   end
 
   def request
-    { feed: @feed_url }
+    { feed: @request }
   end
 
   def desktop
