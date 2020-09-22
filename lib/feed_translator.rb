@@ -14,7 +14,7 @@ class FeedTranslator
     return false if @request.empty?
     
     uri = Addressable::URI.parse(@request)
-    if uri.scheme == "http"
+    if uri.scheme == "http" || uri.scheme == "https"
       return uri
     else
       return false

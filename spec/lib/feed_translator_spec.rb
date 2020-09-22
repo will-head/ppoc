@@ -200,6 +200,14 @@ describe FeedTranslator do
         expect(feed.valid_request?).to be_truthy
       end
     end
+
+    describe "https scheme" do 
+      let(:source_feed) { "https://example.com/feed" }
+
+      it "returns truthy" do 
+        expect(feed.valid_request?).to be_truthy
+      end
+    end
   end
 
   context "with invalid input" do 
