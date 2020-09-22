@@ -192,6 +192,16 @@ describe FeedTranslator do
     end
   end
 
+  # context "with valid input" do 
+  #   describe "http scheme" do 
+  #     let(:source_feed) { "http://example.com/feed" }
+
+  #     it "returns truthy" do 
+  #       expect(feed.valid_request?).to be_truthy
+  #     end
+  #   end
+  # end
+
   context "with invalid input" do 
     describe "not a string" do 
       let(:source_feed) { nil }
@@ -211,6 +221,14 @@ describe FeedTranslator do
 
     describe "invalid characters" do 
       let(:source_feed) { "http:// <not valid>" }
+
+      it "returns false" do 
+        expect(feed.valid_request?).to eq(false)
+      end
+    end
+
+    describe "invalid scheme" do 
+      let(:source_feed) { "invalidscheme://example.com/feed" }
 
       it "returns false" do 
         expect(feed.valid_request?).to eq(false)

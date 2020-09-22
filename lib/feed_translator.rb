@@ -14,7 +14,11 @@ class FeedTranslator
     return false if @request.empty?
     
     uri = Addressable::URI.parse(@request)
-    return uri
+    if uri.scheme == "http"
+      return uri
+    else
+      return false
+    end
 
     rescue Addressable::URI::InvalidURIError
       false
