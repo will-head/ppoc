@@ -24,9 +24,9 @@ describe FeedTranslator do
     end
   end
 
-  describe "#request" do
+  describe "#body[:request]" do
     it "[:feed] = 'http://example.com/feed'" do 
-      expect(feed.request[:feed]).to eq("http://example.com/feed")
+      expect(feed.body[:request][:feed]).to eq("http://example.com/feed")
     end
   end
 

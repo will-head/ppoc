@@ -17,10 +17,6 @@ class FeedTranslator
     }
   end
 
-  def request
-    { feed: @request }
-  end
-
   def desktop
     { 
       default: { feed_title: "Default", feed_url: feed },
@@ -48,6 +44,10 @@ class FeedTranslator
   end
 
   private
+
+  def request
+    { feed: @request }
+  end
 
   def format_feed_with_new_scheme
     replace_feed_scheme(@uri, __callee__.to_s)
