@@ -11,7 +11,8 @@ class FeedTranslator
 
   def desktop
     { 
-      default: { feed_title: "Default", feed_url: feed }
+      default: { feed_title: "Default", feed_url: feed },
+      rss: { feed_title: "RSS", feed_url: feed }
     }
   end
 
