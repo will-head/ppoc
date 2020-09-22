@@ -141,6 +141,16 @@ describe FeedTranslator do
     end
   end
 
+  describe "#ios[:downcast]" do
+    it "[:feed_title] = 'Downcast'" do
+      expect(feed.ios[:downcast][:feed_title]).to eq("Downcast")
+    end
+
+    it "[:feed_url] = 'downcast://example.com/feed'" do
+      expect(feed.ios[:downcast][:feed_url]).to eq("downcast://example.com/feed")
+    end
+  end
+
   # describe "#http" do
   #   it "returns http://example.com/feed" do
   #     expect(feed.http).to eq("http://example.com/feed")

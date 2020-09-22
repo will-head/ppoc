@@ -25,7 +25,7 @@ class FeedTranslator
       overcast: { feed_title: "Overcast", feed_url: overcast },
       castro: { feed_title: "Castro", feed_url: castro },
       pocket_casts: { feed_title: "Pocket Casts", feed_url: pktc },
-      downcast: {},
+      downcast: { feed_title: "Downcast", feed_url: downcast }
     }
   end
 
