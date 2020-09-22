@@ -88,89 +88,89 @@ describe FeedTranslator do
     end
   end
 
-  describe "#ios" do
+  describe "#body[:ios]" do
     it "includes :default key" do
-      expect(feed.ios).to have_key(:default)
+      expect(feed.body[:ios]).to have_key(:default)
     end
 
     it "includes :apple_podcasts key" do
-      expect(feed.ios).to have_key(:apple_podcasts)
+      expect(feed.body[:ios]).to have_key(:apple_podcasts)
     end
 
     it "includes :overcast key" do
-      expect(feed.ios).to have_key(:overcast)
+      expect(feed.body[:ios]).to have_key(:overcast)
     end
 
     it "includes :castro key" do
-      expect(feed.ios).to have_key(:castro)
+      expect(feed.body[:ios]).to have_key(:castro)
     end
 
     it "includes :pocket_casts key" do
-      expect(feed.ios).to have_key(:pocket_casts)
+      expect(feed.body[:ios]).to have_key(:pocket_casts)
     end
 
     it "includes :downcast key" do
-      expect(feed.ios).to have_key(:downcast)
+      expect(feed.body[:ios]).to have_key(:downcast)
     end
   end
 
-  describe "#ios[:default]" do
+  describe "#body[:ios][:default]" do
     it "[:feed_title] = 'Default'" do
-      expect(feed.ios[:default][:feed_title]).to eq("Default")
+      expect(feed.body[:ios][:default][:feed_title]).to eq("Default")
     end
 
     it "[:feed_url] = 'feed://example.com/feed'" do
-      expect(feed.ios[:default][:feed_url]).to eq("feed://example.com/feed")
+      expect(feed.body[:ios][:default][:feed_url]).to eq("feed://example.com/feed")
     end
   end
 
-  describe "#ios[:apple_podcasts]" do
+  describe "#body[:ios][:apple_podcasts]" do
     it "[:feed_title] = 'Apple Podcasts'" do
-      expect(feed.ios[:apple_podcasts][:feed_title]).to eq("Apple Podcasts")
+      expect(feed.body[:ios][:apple_podcasts][:feed_title]).to eq("Apple Podcasts")
     end
 
     it "[:feed_url] = 'podcast://example.com/feed'" do
-      expect(feed.ios[:apple_podcasts][:feed_url]).to eq("podcast://example.com/feed")
+      expect(feed.body[:ios][:apple_podcasts][:feed_url]).to eq("podcast://example.com/feed")
     end
   end
 
-  describe "#ios[:overcast]" do
+  describe "#body[:ios][:overcast]" do
     it "[:feed_title] = 'Overcast'" do
-      expect(feed.ios[:overcast][:feed_title]).to eq("Overcast")
+      expect(feed.body[:ios][:overcast][:feed_title]).to eq("Overcast")
     end
 
     it "[:feed_url] = 'overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed'" do
-      expect(feed.ios[:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+      expect(feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
     end
   end
 
-  describe "#ios[:castro]" do
+  describe "#body[:ios][:castro]" do
     it "[:feed_title] = 'Castro'" do
-      expect(feed.ios[:castro][:feed_title]).to eq("Castro")
+      expect(feed.body[:ios][:castro][:feed_title]).to eq("Castro")
     end
 
     it "[:feed_url] = 'castro://subscribe/example.com/feed'" do
-      expect(feed.ios[:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+      expect(feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
     end
   end
 
-  describe "#ios[:pocket_casts]" do
+  describe "#body[:ios][:pocket_casts]" do
     it "[:feed_title] = 'Pocket Casts'" do
-      expect(feed.ios[:pocket_casts][:feed_title]).to eq("Pocket Casts")
+      expect(feed.body[:ios][:pocket_casts][:feed_title]).to eq("Pocket Casts")
     end
 
     it "[:feed_url] = 'pktc://subscribe/example.com/feed'" do
-      expect(feed.ios[:pocket_casts][:feed_url]).to eq("pktc://subscribe/example.com/feed")
+      expect(feed.body[:ios][:pocket_casts][:feed_url]).to eq("pktc://subscribe/example.com/feed")
     end
   end
 
-  describe "#ios[:downcast]" do
+  describe "#body[:ios][:downcast]" do
     it "[:feed_title] = 'Downcast'" do
-      expect(feed.ios[:downcast][:feed_title]).to eq("Downcast")
+      expect(feed.body[:ios][:downcast][:feed_title]).to eq("Downcast")
     end
 
     it "[:feed_url] = 'downcast://example.com/feed'" do
-      expect(feed.ios[:downcast][:feed_url]).to eq("downcast://example.com/feed")
+      expect(feed.body[:ios][:downcast][:feed_url]).to eq("downcast://example.com/feed")
     end
   end
 

@@ -17,17 +17,6 @@ class FeedTranslator
     }
   end
 
-  def ios
-    {
-      default: { feed_title: "Default", feed_url: feed },
-      apple_podcasts: { feed_title: "Apple Podcasts", feed_url: podcast },
-      overcast: { feed_title: "Overcast", feed_url: overcast },
-      castro: { feed_title: "Castro", feed_url: castro },
-      pocket_casts: { feed_title: "Pocket Casts", feed_url: pktc },
-      downcast: { feed_title: "Downcast", feed_url: downcast }
-    }
-  end
-
   def android
     {
       default: { feed_title: "Default", feed_url: pcast }
@@ -46,6 +35,17 @@ class FeedTranslator
       rss: { feed_title: "RSS", feed_url: http },
       itunes: { feed_title: "iTunes", feed_url: itpc },
       apple_podcasts: { feed_title: "Apple Podcasts", feed_url: podcast }
+    }
+  end
+
+  def ios
+    {
+      default: { feed_title: "Default", feed_url: feed },
+      apple_podcasts: { feed_title: "Apple Podcasts", feed_url: podcast },
+      overcast: { feed_title: "Overcast", feed_url: overcast },
+      castro: { feed_title: "Castro", feed_url: castro },
+      pocket_casts: { feed_title: "Pocket Casts", feed_url: pktc },
+      downcast: { feed_title: "Downcast", feed_url: downcast }
     }
   end
 
