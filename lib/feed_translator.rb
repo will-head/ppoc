@@ -20,7 +20,7 @@ class FeedTranslator
 
   def ios
     {
-      default: {},
+      default: { feed_title: "Default", feed_url: feed },
       apple_podcasts: {},
       overcast: {},
       castro: {},

@@ -91,6 +91,16 @@ describe FeedTranslator do
     end
   end
 
+  describe "#ios[:default]" do
+    it "[:feed_title] = 'Default'" do
+      expect(feed.ios[:default][:feed_title]).to eq("Default")
+    end
+
+    it "[:feed_url] = 'feed://example.com/feed'" do
+      expect(feed.ios[:default][:feed_url]).to eq("feed://example.com/feed")
+    end
+  end
+
   # describe "#http" do
   #   it "returns http://example.com/feed" do
   #     expect(feed.http).to eq("http://example.com/feed")
