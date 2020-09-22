@@ -26,9 +26,9 @@ class FeedTranslator
   def valid_scheme?(uri)
     if uri.scheme.in?(VALID_SCHEMES)
       if uri.scheme.in?(SUBSCRIBE_PREFIX)
-        return false unless prefix?(@request, "subscribe/")
+        return false unless feed_prefix?(@request, "subscribe/")
 
-        uri = Addressable::URI.parse(remove_subscribe_prefix_from_feed(@request))
+        uri = Addressable::URI.parse(remove_feed_prefix(@request, "subscribe/"))
       end
       return uri
     end
@@ -82,7 +82,7 @@ class FeedTranslator
   end
 
   def format_feed_with_new_scheme_add_subscribe
-    add_subscribe_prefix_to_feed(replace_feed_scheme(@uri, __callee__.to_s))
+    add_feed_prefix(replace_feed_scheme(@uri, __callee__.to_s), "subscribe/")
   end
 
   def format_feed_with_new_scheme_add_x_callback_url
@@ -106,26 +106,18 @@ class FeedTranslator
     uri.to_s
   end
 
-  def prefix?(uri, prefix)
-    split = uri.to_s.split('://')
+  def feed_prefix?(feed, prefix)
+    split = feed.to_s.split('://')
     split[1].start_with?(prefix)
   end
 
-  def add_prefix_to_feed(uri, prefix)
-    split = uri.to_s.split('://')
+  def add_feed_prefix(feed, prefix)
+    split = feed.to_s.split('://')
     split[0] + "://" + prefix + split[1]
   end
 
-  def remove_prefix_from_feed(uri, prefix)
-    split = uri.to_s.split('://')
+  def remove_feed_prefix(feed, prefix)
+    split = feed.to_s.split('://')
     split[0] + "://" + split[1].delete_prefix(prefix)
-  end
-
-  def add_subscribe_prefix_to_feed(uri)
-    add_prefix_to_feed(uri, "subscribe/")
-  end
-
-  def remove_subscribe_prefix_from_feed(uri)
-    remove_prefix_from_feed(uri, "subscribe/")
   end
 end
