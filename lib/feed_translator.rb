@@ -10,6 +10,7 @@ class FeedTranslator
 
   def valid_request?
     return false if @request.is_a?(String) == false 
+    return false if @request.empty?
       
   end
 

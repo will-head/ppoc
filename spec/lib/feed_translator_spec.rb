@@ -200,5 +200,13 @@ describe FeedTranslator do
         expect(feed.valid_request?).to eq(false)
       end
     end
+
+    describe "empty string" do 
+      let(:source_feed) { "" }
+
+      it "returns false" do 
+        expect(feed.valid_request?).to eq(false)
+      end
+    end
   end
 end
