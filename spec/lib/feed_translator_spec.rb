@@ -436,5 +436,13 @@ describe FeedTranslator do
         expect(feed.valid_request?).to eq(false)
       end
     end
+
+    describe "invalid pktc feed" do 
+      let(:source_feed) { "pktc://example.com/feed" }
+
+      it "returns false" do 
+        expect(feed.valid_request?).to eq(false)
+      end
+    end
   end
 end
