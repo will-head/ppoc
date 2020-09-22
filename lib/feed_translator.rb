@@ -18,8 +18,11 @@ class FeedTranslator
     return false unless @request.is_a?(String)
     return false if @request.empty?
     
+
+    # p prefix?(@request, "subscribe/")
     @request = remove_subscribe_prefix_from_feed(@request)
     uri = Addressable::URI.parse(@request)
+
     return uri if uri.scheme.in?(VALID_SCHEMES)
 
     # if uri.scheme.in?(VALID_SCHEMES)
@@ -101,6 +104,11 @@ class FeedTranslator
   def replace_feed_scheme(uri, scheme)
     uri.scheme = scheme
     uri.to_s
+  end
+
+  def prefix?(uri, prefix)
+    split = uri.to_s.split('://')
+    split[1].start_with?(prefix)
   end
 
   def add_prefix_to_feed(uri, prefix)
