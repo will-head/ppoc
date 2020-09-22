@@ -30,61 +30,61 @@ describe FeedTranslator do
     end
   end
 
-  describe "#desktop" do
+  describe "#body[:desktop]" do
     it "includes :default key" do
-      expect(feed.desktop).to have_key(:default)
+      expect(feed.body[:desktop]).to have_key(:default)
     end
 
     it "includes :rss key" do
-      expect(feed.desktop).to have_key(:rss)
+      expect(feed.body[:desktop]).to have_key(:rss)
     end
 
     it "includes :itunes key" do
-      expect(feed.desktop).to have_key(:itunes)
+      expect(feed.body[:desktop]).to have_key(:itunes)
     end
 
     it "includes :apple_podcasts key" do
-      expect(feed.desktop).to have_key(:apple_podcasts)
+      expect(feed.body[:desktop]).to have_key(:apple_podcasts)
     end
   end
 
-  describe "#desktop[:default]" do
+  describe "#body[:desktop][:default]" do
     it "[:feed_title] = 'Default'" do
-      expect(feed.desktop[:default][:feed_title]).to eq("Default")
+      expect(feed.body[:desktop][:default][:feed_title]).to eq("Default")
     end
 
     it "[:feed_url] = 'feed://example.com/feed'" do
-      expect(feed.desktop[:default][:feed_url]).to eq("feed://example.com/feed")
+      expect(feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
     end
   end
 
-  describe "#desktop[:rss]" do
+  describe "#body[:desktop][:rss]" do
     it "[:feed_title] = 'RSS'" do
-      expect(feed.desktop[:rss][:feed_title]).to eq("RSS")
+      expect(feed.body[:desktop][:rss][:feed_title]).to eq("RSS")
     end
 
     it "[:feed_url] = 'http://example.com/feed'" do
-      expect(feed.desktop[:rss][:feed_url]).to eq("http://example.com/feed")
+      expect(feed.body[:desktop][:rss][:feed_url]).to eq("http://example.com/feed")
     end
   end
 
-  describe "#desktop[:itunes]" do
+  describe "#body[:desktop][:itunes]" do
     it "[:feed_title] = 'iTunes'" do
-      expect(feed.desktop[:itunes][:feed_title]).to eq("iTunes")
+      expect(feed.body[:desktop][:itunes][:feed_title]).to eq("iTunes")
     end
 
     it "[:feed_url] = 'itpc://example.com/feed'" do
-      expect(feed.desktop[:itunes][:feed_url]).to eq("itpc://example.com/feed")
+      expect(feed.body[:desktop][:itunes][:feed_url]).to eq("itpc://example.com/feed")
     end
   end
 
-  describe "#desktop[:apple_podcasts]" do
+  describe "#body[:desktop][:apple_podcasts]" do
     it "[:feed_title] = 'Apple Podcasts'" do
-      expect(feed.desktop[:apple_podcasts][:feed_title]).to eq("Apple Podcasts")
+      expect(feed.body[:desktop][:apple_podcasts][:feed_title]).to eq("Apple Podcasts")
     end
 
     it "[:feed_url] = 'podcast://example.com/feed'" do
-      expect(feed.desktop[:apple_podcasts][:feed_url]).to eq("podcast://example.com/feed")
+      expect(feed.body[:desktop][:apple_podcasts][:feed_url]).to eq("podcast://example.com/feed")
     end
   end
 

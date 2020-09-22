@@ -17,15 +17,6 @@ class FeedTranslator
     }
   end
 
-  def desktop
-    { 
-      default: { feed_title: "Default", feed_url: feed },
-      rss: { feed_title: "RSS", feed_url: http },
-      itunes: { feed_title: "iTunes", feed_url: itpc },
-      apple_podcasts: { feed_title: "Apple Podcasts", feed_url: podcast }
-    }
-  end
-
   def ios
     {
       default: { feed_title: "Default", feed_url: feed },
@@ -47,6 +38,15 @@ class FeedTranslator
 
   def request
     { feed: @request }
+  end
+
+  def desktop
+    { 
+      default: { feed_title: "Default", feed_url: feed },
+      rss: { feed_title: "RSS", feed_url: http },
+      itunes: { feed_title: "iTunes", feed_url: itpc },
+      apple_podcasts: { feed_title: "Apple Podcasts", feed_url: podcast }
+    }
   end
 
   def format_feed_with_new_scheme
