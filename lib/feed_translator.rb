@@ -2,15 +2,10 @@ require 'addressable/uri'
 require 'cgi'
 
 class FeedTranslator
-  VALID_SCHEMES = [
-    "http", "https", "feed", "itpc", 
-    "podcast", "overcast", "castro", 
-    "pktc", "downcast", "pcast"
-  ]
+  VALID_SCHEMES = ["http", "https", "feed", "itpc", "podcast", 
+    "overcast", "castro", "pktc", "downcast", "pcast"]
 
-  SUBSCRIBE_PREFIX = [
-    "castro", "pktc"
-  ]
+  SUBSCRIBE_PREFIX = ["castro", "pktc"]
 
   def initialize(request)
     @request = request
@@ -20,31 +15,25 @@ class FeedTranslator
 
   def valid_request?
     return false unless @request.is_a?(String)
-    return false if @request.empty?
-    
 
-    # p prefix?(@request, "subscribe/")
-    # @request = remove_subscribe_prefix_from_feed(@request)
     uri = Addressable::URI.parse(@request)
 
-    # return uri if uri.scheme.in?(VALID_SCHEMES)
+    valid_scheme?(uri)
+    rescue Addressable::URI::InvalidURIError 
+      false
+  end
 
+  def valid_scheme?(uri)
     if uri.scheme.in?(VALID_SCHEMES)
       if uri.scheme.in?(SUBSCRIBE_PREFIX)
-        if prefix?(@request, "subscribe/")
-          uri = Addressable::URI.parse(remove_subscribe_prefix_from_feed(@request))
-        else
-          return false
-        end
+        return false unless prefix?(@request, "subscribe/")
+
+        uri = Addressable::URI.parse(remove_subscribe_prefix_from_feed(@request))
       end
-      # check castro 
-      # p uri.host + uri.path
       return uri
     end
 
     false
-    rescue Addressable::URI::InvalidURIError
-      false
   end
 
   def body
