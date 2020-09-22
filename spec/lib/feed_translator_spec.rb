@@ -19,6 +19,10 @@ describe FeedTranslator do
     it "includes :itunes key" do
       expect(feed.desktop).to have_key(:itunes)
     end
+
+    it "includes :apple_podcasts key" do
+      expect(feed.desktop).to have_key(:apple_podcasts)
+    end
   end
 
   describe "#desktop[:default]" do
@@ -36,8 +40,8 @@ describe FeedTranslator do
       expect(feed.desktop[:rss][:feed_title]).to eq("RSS")
     end
 
-    it "[:feed_url] = 'feed://example.com/feed'" do
-      expect(feed.desktop[:rss][:feed_url]).to eq("feed://example.com/feed")
+    it "[:feed_url] = 'http://example.com/feed'" do
+      expect(feed.desktop[:rss][:feed_url]).to eq("http://example.com/feed")
     end
   end
 
@@ -48,6 +52,16 @@ describe FeedTranslator do
 
     it "[:feed_url] = 'itpc://example.com/feed'" do
       expect(feed.desktop[:itunes][:feed_url]).to eq("itpc://example.com/feed")
+    end
+  end
+
+  describe "#desktop[:apple_podcasts]" do
+    it "[:feed_title] = 'Apple Podcasts'" do
+      expect(feed.desktop[:apple_podcasts][:feed_title]).to eq("Apple Podcasts")
+    end
+
+    it "[:feed_url] = 'podcast://example.com/feed'" do
+      expect(feed.desktop[:apple_podcasts][:feed_url]).to eq("podcast://example.com/feed")
     end
   end
 
