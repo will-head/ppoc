@@ -17,12 +17,6 @@ class FeedTranslator
     }
   end
 
-  def android
-    {
-      default: { feed_title: "Default", feed_url: pcast }
-    }
-  end
-
   private
 
   def request
@@ -49,6 +43,12 @@ class FeedTranslator
     }
   end
 
+  def android
+    {
+      default: { feed_title: "Default", feed_url: pcast }
+    }
+  end
+  
   def format_feed_with_new_scheme
     replace_feed_scheme(@uri, __callee__.to_s)
   end

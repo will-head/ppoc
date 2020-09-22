@@ -174,19 +174,19 @@ describe FeedTranslator do
     end
   end
 
-  describe "#android" do
+  describe "#body[:android]" do
     it "includes :default key" do
-      expect(feed.android).to have_key(:default)
+      expect(feed.body[:android]).to have_key(:default)
     end
   end
 
-  describe "#android[:default]" do
+  describe "#body[:android][:default]" do
     it "[:feed_title] = 'Default'" do
-      expect(feed.android[:default][:feed_title]).to eq("Default")
+      expect(feed.body[:android][:default][:feed_title]).to eq("Default")
     end
 
     it "[:feed_url] = 'pcast://example.com/feed'" do
-      expect(feed.android[:default][:feed_url]).to eq("pcast://example.com/feed")
+      expect(feed.body[:android][:default][:feed_url]).to eq("pcast://example.com/feed")
     end
   end
 end
