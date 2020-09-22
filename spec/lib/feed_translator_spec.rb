@@ -19,8 +19,7 @@ describe FeedTranslator do
 
   describe "#desktop[:default]" do
     it "returns hash with feed_title: 'Default' and feed_url: 'feed://example.com/feed'" do
-      default = { :feed_title => "Default", :feed_url => "feed://example.com/feed" }
-      expect(feed.desktop[:default]).to eq(default)
+      expect(feed.desktop[:default]).to eq({ :feed_title => "Default", :feed_url => "feed://example.com/feed" })
     end
   end
 
