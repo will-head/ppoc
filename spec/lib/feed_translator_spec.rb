@@ -101,6 +101,16 @@ describe FeedTranslator do
     end
   end
 
+  describe "#ios[:apple_podcasts]" do
+    it "[:feed_title] = 'Apple Podcasts'" do
+      expect(feed.ios[:apple_podcasts][:feed_title]).to eq("Apple Podcasts")
+    end
+
+    it "[:feed_url] = 'podcast://example.com/feed'" do
+      expect(feed.ios[:apple_podcasts][:feed_url]).to eq("podcast://example.com/feed")
+    end
+  end
+
   # describe "#http" do
   #   it "returns http://example.com/feed" do
   #     expect(feed.http).to eq("http://example.com/feed")
