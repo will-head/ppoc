@@ -6,6 +6,12 @@ describe FeedTranslator do
 
   let(:source_feed) { "http://example.com/feed" }
 
+  describe "#request" do
+    it "[:feed] = 'http://example.com/feed'" do 
+      expect(feed.request[:feed]).to eq("http://example.com/feed")
+    end
+  end
+
   describe "#desktop" do
     it "includes :default key" do
       expect(feed.desktop).to have_key(:default)

@@ -7,6 +7,10 @@ class FeedTranslator
     @uri = Addressable::URI.parse(feed_url)
   end
 
+  def request
+    { feed: @feed_url }
+  end
+
   def desktop
     { 
       default: { feed_title: "Default", feed_url: feed },
