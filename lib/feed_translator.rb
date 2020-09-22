@@ -2,15 +2,12 @@ require 'addressable/uri'
 require 'cgi'
 
 class FeedTranslator
-  attr_reader :feed_url
+  attr_reader :feed_url, :default
 
   def initialize(feed_url)
     @feed_url = feed_url
     @uri = Addressable::URI.parse(feed_url)
-  end
-
-  def default
-    { :feed_title => "Default", :feed_url => feed }
+    @default = { :feed_title => "Default", :feed_url => feed }
   end
 
   def format_feed_with_new_scheme
