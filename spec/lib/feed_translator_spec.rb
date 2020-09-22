@@ -429,12 +429,12 @@ describe FeedTranslator do
       end
     end
 
-    # describe "invalid castro feed" do 
-    #   let(:source_feed) { "castro://example.com/feed" }
+    describe "invalid castro feed" do 
+      let(:source_feed) { "castro://example.com/feed" }
 
-    #   it "returns false" do 
-    #     expect(feed.valid_request?).to eq(false)
-    #   end
-    # end
+      it "returns false" do 
+        expect(feed.valid_request?).to eq(false)
+      end
+    end
   end
 end

@@ -8,6 +8,10 @@ class FeedTranslator
     "pktc", "downcast", "pcast"
   ]
 
+  SUBSCRIBE_PREFIX = [
+    "castro", "pktc"
+  ]
+
   def initialize(request)
     @request = request
     @feed_url = @request
@@ -26,8 +30,12 @@ class FeedTranslator
     # return uri if uri.scheme.in?(VALID_SCHEMES)
 
     if uri.scheme.in?(VALID_SCHEMES)
-      if prefix?(@request, "subscribe/")
-        uri = Addressable::URI.parse(remove_subscribe_prefix_from_feed(@request))
+      if uri.scheme.in?(SUBSCRIBE_PREFIX)
+        if prefix?(@request, "subscribe/")
+          uri = Addressable::URI.parse(remove_subscribe_prefix_from_feed(@request))
+        else
+          return false
+        end
       end
       # check castro 
       # p uri.host + uri.path
