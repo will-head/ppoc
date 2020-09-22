@@ -31,7 +31,7 @@ class FeedTranslator
 
   def android
     {
-      default: {}
+      default: { feed_title: "Default", feed_url: pcast }
     }
   end
 

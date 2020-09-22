@@ -157,6 +157,16 @@ describe FeedTranslator do
     end
   end
 
+  describe "#android[:default]" do
+    it "[:feed_title] = 'Default'" do
+      expect(feed.android[:default][:feed_title]).to eq("Default")
+    end
+
+    it "[:feed_url] = 'pcast://example.com/feed'" do
+      expect(feed.android[:default][:feed_url]).to eq("pcast://example.com/feed")
+    end
+  end
+
   # describe "#http" do
   #   it "returns http://example.com/feed" do
   #     expect(feed.http).to eq("http://example.com/feed")
