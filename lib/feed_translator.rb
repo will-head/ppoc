@@ -18,6 +18,17 @@ class FeedTranslator
     }
   end
 
+  def ios
+    {
+      default: {},
+      apple_podcasts: {},
+      overcast: {},
+      castro: {},
+      pocket_casts: {},
+      downcast: {},
+    }
+  end
+
   def format_feed_with_new_scheme
     replace_feed_scheme(@uri, __callee__.to_s)
   end
