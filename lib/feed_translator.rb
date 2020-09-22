@@ -23,7 +23,7 @@ class FeedTranslator
       default: { feed_title: "Default", feed_url: feed },
       apple_podcasts: { feed_title: "Apple Podcasts", feed_url: podcast },
       overcast: { feed_title: "Overcast", feed_url: overcast },
-      castro: {},
+      castro: { feed_title: "Castro", feed_url: castro },
       pocket_casts: {},
       downcast: {},
     }
