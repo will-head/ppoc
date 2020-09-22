@@ -1,6 +1,5 @@
 require 'rails_helper'
-# require 'feeds_translator'
-require_relative "../../lib/feed_translator"
+require 'feed_translator'
 
 describe FeedTranslator do
   subject(:feed) { described_class.new(source_feed) }
