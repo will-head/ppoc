@@ -301,9 +301,9 @@ describe FeedTranslator do
         expect(feed.valid_request?).not_to eq(false)
       end
 
-      # it "returns expected format for feed://" do
-      #   expect(feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
-      # end
+      it "returns expected format for feed://" do
+        expect(feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
+      end
 
       # it "returns expected format for overcast://" do
       #   expect(feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=https%3A%2F%2Fexample.com%2Ffeed")

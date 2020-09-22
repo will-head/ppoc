@@ -9,6 +9,7 @@ class FeedTranslator
 
   def initialize(request)
     @request = request
+    @feed = ""
     @uri = valid_request?
   end
 
@@ -24,11 +25,15 @@ class FeedTranslator
 
   def valid_scheme?(uri)
     if uri.scheme.in?(VALID_SCHEMES)
+      uri = Addressable::URI.parse(uri.query_values["url"]) if uri.scheme == "overcast"
+
       if uri.scheme.in?(SUBSCRIBE_PREFIX)
         return false unless feed_prefix?(@request, "subscribe/")
 
         uri = Addressable::URI.parse(remove_feed_prefix(@request, "subscribe/"))
-      end
+      end      
+
+      @feed = @request
       return uri
     end
 
@@ -85,7 +90,7 @@ class FeedTranslator
   end
 
   def format_feed_with_new_scheme_add_x_callback_url
-    __callee__.to_s + "://x-callback-url/add?url=" + CGI::escape(@request)
+    __callee__.to_s + "://x-callback-url/add?url=" + CGI::escape(@feed)
   end
 
   alias_method :http, :format_feed_with_new_scheme
