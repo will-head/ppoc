@@ -2,10 +2,11 @@ require 'addressable/uri'
 require 'cgi'
 
 class FeedTranslator
+  VALID_SCHEMES = ["http", "https"]
+
   def initialize(request)
     @request = request
     @feed_url = @request
-    # @uri = Addressable::URI.parse(@feed_url)
     @uri = valid_request?
   end
 
@@ -14,12 +15,9 @@ class FeedTranslator
     return false if @request.empty?
     
     uri = Addressable::URI.parse(@request)
-    if uri.scheme == "http" || uri.scheme == "https"
-      return uri
-    else
-      return false
-    end
+    return uri if uri.scheme.in?(VALID_SCHEMES)
 
+    false
     rescue Addressable::URI::InvalidURIError
       false
   end
