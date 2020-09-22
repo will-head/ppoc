@@ -204,7 +204,15 @@ describe FeedTranslator do
     describe "https scheme" do 
       let(:source_feed) { "https://example.com/feed" }
 
-      it "returns truthy" do 
+      it "doesn't return false" do 
+        expect(feed.valid_request?).not_to eq(false)
+      end
+    end
+
+    describe "feed scheme" do 
+      let(:source_feed) { "feed://example.com/feed" }
+
+      it "doesn't return false" do 
         expect(feed.valid_request?).not_to eq(false)
       end
     end

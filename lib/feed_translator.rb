@@ -2,7 +2,7 @@ require 'addressable/uri'
 require 'cgi'
 
 class FeedTranslator
-  VALID_SCHEMES = ["http", "https"]
+  VALID_SCHEMES = ["http", "https", "feed"]
 
   def initialize(request)
     @request = request
