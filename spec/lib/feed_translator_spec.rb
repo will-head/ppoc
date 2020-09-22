@@ -8,24 +8,46 @@ describe FeedTranslator do
   let(:source_feed) { "http://example.com/feed" }
 
   describe "#desktop" do
-    it "includes default key" do
+    it "includes :default key" do
       expect(feed.desktop).to have_key(:default)
     end
 
-    it "includes rss key" do
+    it "includes :rss key" do
       expect(feed.desktop).to have_key(:rss)
+    end
+
+    it "includes :itunes key" do
+      expect(feed.desktop).to have_key(:itunes)
     end
   end
 
   describe "#desktop[:default]" do
-    it "returns hash with feed_title: 'Default' and feed_url: 'feed://example.com/feed'" do
-      expect(feed.desktop[:default]).to eq({ :feed_title => "Default", :feed_url => "feed://example.com/feed" })
+    it "[:feed_title] = 'Default'" do
+      expect(feed.desktop[:default][:feed_title]).to eq("Default")
+    end
+
+    it "[:feed_url] = 'feed://example.com/feed'" do
+      expect(feed.desktop[:default][:feed_url]).to eq("feed://example.com/feed")
     end
   end
 
   describe "#desktop[:rss]" do
-    it "returns hash with feed_title: 'RSS' and feed_url: 'feed://example.com/feed'" do
-      expect(feed.desktop[:rss]).to eq({ :feed_title => "RSS", :feed_url => "feed://example.com/feed" })
+    it "[:feed_title] = 'RSS'" do
+      expect(feed.desktop[:rss][:feed_title]).to eq("RSS")
+    end
+
+    it "[:feed_url] = 'feed://example.com/feed'" do
+      expect(feed.desktop[:rss][:feed_url]).to eq("feed://example.com/feed")
+    end
+  end
+
+  describe "#desktop[:itunes]" do
+    it "[:feed_title] = 'iTunes'" do
+      expect(feed.desktop[:itunes][:feed_title]).to eq("iTunes")
+    end
+
+    it "[:feed_url] = 'itpc://example.com/feed'" do
+      expect(feed.desktop[:itunes][:feed_url]).to eq("itpc://example.com/feed")
     end
   end
 
