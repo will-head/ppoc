@@ -216,6 +216,63 @@ describe FeedTranslator do
         expect(feed.valid_request?).not_to eq(false)
       end
     end
+
+    describe "itpc scheme" do 
+      let(:source_feed) { "itpc://example.com/feed" }
+
+      it "doesn't return false" do 
+        expect(feed.valid_request?).not_to eq(false)
+      end
+    end
+
+    describe "podcast scheme" do 
+      let(:source_feed) { "podcast://example.com/feed" }
+
+      it "doesn't return false" do 
+        expect(feed.valid_request?).not_to eq(false)
+      end
+    end
+
+    describe "overcast scheme" do 
+      let(:source_feed) { "overcast://example.com/feed" }
+
+      it "doesn't return false" do 
+        expect(feed.valid_request?).not_to eq(false)
+      end
+    end
+
+    describe "castro scheme" do 
+      let(:source_feed) { "castro://example.com/feed" }
+
+      it "doesn't return false" do 
+        expect(feed.valid_request?).not_to eq(false)
+      end
+    end
+
+    describe "pktc scheme" do 
+      let(:source_feed) { "pktc://example.com/feed" }
+
+      it "doesn't return false" do 
+        expect(feed.valid_request?).not_to eq(false)
+      end
+    end
+
+    describe "downcast scheme" do 
+      let(:source_feed) { "downcast://example.com/feed" }
+
+      it "doesn't return false" do 
+        expect(feed.valid_request?).not_to eq(false)
+      end
+    end
+
+    describe "pcast scheme" do 
+      let(:source_feed) { "pcast://example.com/feed" }
+
+      it "doesn't return false" do 
+        expect(feed.valid_request?).not_to eq(false)
+      end
+    end
+
   end
 
   context "with invalid input" do 
