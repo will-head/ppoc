@@ -309,9 +309,9 @@ describe FeedTranslator do
       #   expect(feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=https%3A%2F%2Fexample.com%2Ffeed")
       # end
 
-      # it "returns expected format for castro://" do
-      #   expect(feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
-      # end
+      it "returns expected format for castro://" do
+        expect(feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+      end
     end
 
     describe "castro scheme" do 
