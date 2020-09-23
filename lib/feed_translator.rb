@@ -25,21 +25,29 @@ class FeedTranslator
 
   def valid_scheme?(uri)
     if uri.scheme.in?(VALID_SCHEMES)
-      if uri.scheme == "overcast"
-        uri = Addressable::URI.parse(uri.query_values["url"])
-        @feed = Addressable::URI.parse(@request).query_values["url"]
-      end
-
-      if uri.scheme.in?(SUBSCRIBE_PREFIX)
-        return false unless feed_prefix?(@request, "subscribe/")
-
-        uri = Addressable::URI.parse(remove_feed_prefix(@request, "subscribe/"))
-      end      
-
-      return uri
+      uri = overcast_scheme(uri)
+      return subscribe_prefix?(uri)
     end
 
     false
+  end
+
+  def overcast_scheme(uri)
+    if uri.scheme == "overcast"
+      uri = Addressable::URI.parse(uri.query_values["url"])
+      @feed = Addressable::URI.parse(@request).query_values["url"]
+    end
+
+    uri
+  end
+
+  def subscribe_prefix?(uri)
+    if uri.scheme.in?(SUBSCRIBE_PREFIX)
+      return false unless feed_prefix?(@request, "subscribe/")
+
+      uri = Addressable::URI.parse(remove_feed_prefix(@request, "subscribe/"))
+    end
+    uri
   end
 
   def body
