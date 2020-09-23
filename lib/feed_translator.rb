@@ -27,9 +27,6 @@ class FeedTranslator
     if uri.scheme.in?(VALID_SCHEMES)
       if uri.scheme == "overcast"
         uri = Addressable::URI.parse(uri.query_values["url"])
-        # feed_uri = Addressable::URI.parse(Addressable::URI.parse(@request).query_values["url"])
-        # @feed = replace_feed_scheme(feed_uri, "http")
-        # p @feed
         @feed = Addressable::URI.parse(@request).query_values["url"]
       end
 
@@ -95,13 +92,9 @@ class FeedTranslator
   end
 
   def format_feed_with_new_scheme_add_x_callback_url
-    if feed_prefix?(@feed, "subscribe/")
-      @feed = remove_feed_prefix(@request, "subscribe/")
-    end
+    @feed = remove_feed_prefix(@request, "subscribe/") if feed_prefix?(@feed, "subscribe/")
     feed_uri = Addressable::URI.parse(@feed)
-    unless feed_uri.scheme.in?(["http", "https"])
-      @feed = replace_feed_scheme(feed_uri, "http")
-    end
+    @feed = replace_feed_scheme(feed_uri, "http") unless feed_uri.scheme.in?(["http", "https"]) 
     __callee__.to_s + "://x-callback-url/add?url=" + CGI::escape(@feed)
   end
 
