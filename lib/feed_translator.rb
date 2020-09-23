@@ -21,8 +21,8 @@ class FeedTranslator
     uri = Addressable::URI.parse(@request)
 
     valid_scheme?(uri)
-    rescue Addressable::URI::InvalidURIError 
-      false
+  rescue Addressable::URI::InvalidURIError 
+    false
   end
 
   def valid_scheme?(uri)
