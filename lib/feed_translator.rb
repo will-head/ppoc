@@ -95,6 +95,9 @@ class FeedTranslator
   end
 
   def format_feed_with_new_scheme_add_x_callback_url
+    if feed_prefix?(@feed, "subscribe/")
+      @feed = remove_feed_prefix(@request, "subscribe/")
+    end
     feed_uri = Addressable::URI.parse(@feed)
     unless feed_uri.scheme.in?(["http", "https"])
       @feed = replace_feed_scheme(feed_uri, "http")
