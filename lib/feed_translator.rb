@@ -7,6 +7,8 @@ class FeedTranslator
 
   SUBSCRIBE_PREFIX = ["castro", "pktc"]
 
+  XCALLBACK_SCHEMES = ["overcast"]
+
   def initialize(request)
     @request = request
     @feed = @request
@@ -25,15 +27,15 @@ class FeedTranslator
 
   def valid_scheme?(uri)
     if uri.scheme.in?(VALID_SCHEMES)
-      uri = overcast_scheme(uri)
+      uri = xcallback_scheme(uri)
       return subscribe_prefix?(uri)
     end
 
     false
   end
 
-  def overcast_scheme(uri)
-    if uri.scheme == "overcast"
+  def xcallback_scheme(uri)
+    if uri.scheme.in?(XCALLBACK_SCHEMES)
       uri = Addressable::URI.parse(uri.query_values["url"])
       @feed = Addressable::URI.parse(@request).query_values["url"]
     end
