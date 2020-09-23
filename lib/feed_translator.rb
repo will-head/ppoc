@@ -1,5 +1,6 @@
 require 'addressable/uri'
 require 'cgi'
+require 'open-uri'
 
 class FeedTranslator
   VALID_SCHEMES = ["http", "https", "feed", "itpc", "podcast", 
@@ -104,8 +105,24 @@ class FeedTranslator
   def format_feed_with_new_scheme_add_x_callback_url
     @feed = remove_feed_prefix(@request, "subscribe/") if feed_prefix?(@feed, "subscribe/")
     feed_uri = Addressable::URI.parse(@feed)
-    @feed = replace_feed_scheme(feed_uri, "http") unless feed_uri.scheme.in?(["http", "https"]) 
+    # @feed = replace_feed_scheme(feed_uri, "http") unless feed_uri.scheme.in?(["http", "https"]) 
+    unless feed_uri.scheme.in?(["http", "https"])
+      @feed = replace_feed_scheme(feed_uri, "https")
+    end
+
+    if feed_uri.scheme == "https"
+          # p try_https(@feed)
+      unless try_https(@feed)
+        @feed = replace_feed_scheme(feed_uri, "http")
+      end
+    end
+    
     __callee__.to_s + "://x-callback-url/add?url=" + CGI::escape(@feed)
+  end
+
+  def try_https(feed)
+    status = URI.open(feed).status rescue false
+    status == ["200", "OK"]
   end
 
   alias_method :http, :format_feed_with_new_scheme

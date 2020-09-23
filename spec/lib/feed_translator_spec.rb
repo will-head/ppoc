@@ -3,9 +3,15 @@ require 'feed_translator'
 
 describe FeedTranslator do
   subject(:feed) { described_class.new(source_feed) }
+    # before(:each) do
+    #   allow(subject).to receive(:try_https).and_return(true)
+    # end
 
   context "with http://example.com/feed" do 
     let(:source_feed) { "http://example.com/feed" }
+    before(:each) do
+      allow(feed).to receive(:try_https).and_return(true)
+    end
 
     describe "#body" do
       it "includes :request key" do
@@ -193,8 +199,13 @@ describe FeedTranslator do
   end
 
   context "with valid input" do 
+    before(:example) do
+      # allow(subject).to receive(:try_https).and_return(true)
+    end
+
     describe "http scheme" do 
       let(:source_feed) { "http://example.com/feed" }
+
 
       it "valid_request? doesn't return false" do 
         expect(feed.valid_request?).not_to eq(false)
@@ -215,6 +226,9 @@ describe FeedTranslator do
 
     describe "https scheme" do 
       let(:source_feed) { "https://example.com/feed" }
+      before(:example) do
+        allow(subject).to receive(:try_https).and_return(true)
+      end
 
       it "valid_request? doesn't return false" do 
         expect(feed.valid_request?).not_to eq(false)
@@ -397,6 +411,10 @@ describe FeedTranslator do
   end
 
   context "with invalid input" do 
+    before(:example) do
+      allow(subject).to receive(:try_https).and_return(true)
+    end
+
     describe "not a string" do 
       let(:source_feed) { nil }
 
@@ -442,6 +460,16 @@ describe FeedTranslator do
 
       it "returns false" do 
         expect(feed.valid_request?).to eq(false)
+      end
+    end
+  end
+
+  context "with http https for x-callback-url output" do
+    describe "feed without https" do
+      let(:source_feed) { "https://feeds.frackulous.com/frackulous/sd" }
+
+      it "returns http://feeds.frackulous.com/frackulous/sd" do
+        expect(feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Ffeeds.frackulous.com%2Ffrackulous%2Fsd")
       end
     end
   end
