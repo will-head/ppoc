@@ -244,9 +244,9 @@ describe FeedTranslator do
         expect(feed.body[:desktop][:rss][:feed_url]).to eq("http://example.com/feed")
       end
 
-      # it "returns expected format for overcast://" do
-      #   expect(feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
-      # end
+      it "returns expected format for overcast://" do
+        expect(feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+      end
 
       it "returns expected format for castro://" do
         expect(feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
