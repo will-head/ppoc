@@ -59,6 +59,23 @@ curl --request POST \
 }'
 ```
 
+The following feed formats are accepted as input:
+
+```
+http://example.com/feed
+https://example.com/feed
+feed://example.com/feed
+itpc://example.com/feed
+podcast://example.com/feed
+downcast://example.com/feed
+pcast://example.com/feed
+
+castro://subscribe/example.com/feed
+pktc://subscribe/example.com/feed
+
+overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed
+```
+
 On success, the above command returns JSON structured like this:
 ```json
 {
@@ -120,10 +137,13 @@ On success, the above command returns JSON structured like this:
 
 ## Improvements
 
-* Allow other feed formats as input - for example 'podcast://example.com/feed'
+* Return 422 status and Error in JSON for invalid input feed
+* Remove redundant tests from FeedsController
+* Split FeedTransator into separate classes
+* ~~Allow other feed formats as input - for example 'podcast://example.com/feed'~~
 * Provide short link for feeds - for example ppoc.dev/x4ed6 -> https://podcastplayerofchoice.com/link/?url=http://example.com/feed
 * Redirect root to API documentation page on [podcastplayerofchoice.com](https://podcastplayerofchoice.com/)
-* Validate feed url
+* ~~Validate feed url~~
 * Add rate limiting
 * Add CORS
 * ~~Refactor add_prefix_to_feed to use sub/[]=~~ Faster to use split
