@@ -6,10 +6,11 @@ describe FeedFormatter do
 
   context "with http://example.com/feed" do 
     let(:source_feed) { "http://example.com/feed" }
+
     describe "#body" do
       it "includes :request key" do
         translated_feed = FeedTranslator.new(source_feed)
-        formatted_feed = FeedFormatter.new(translated_feed)
+        formatted_feed = described_class.new(translated_feed)
         expect(formatted_feed.body).to have_key(:request)
       end
     end
