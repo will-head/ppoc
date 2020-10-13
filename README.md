@@ -137,9 +137,10 @@ On success, the above command returns JSON structured like this:
 
 ## Improvements
 
-* Return 422 status and Error in JSON for invalid input feed
-* Remove redundant tests from FeedsController
-* Split FeedTransator into separate classes
+* Return status in JSON body
+* ~~Return 422 status and Error in JSON for invalid input feed~~
+* ~~Remove redundant tests from FeedsController~~
+* ~~Split FeedTransator into separate classes~~
 * ~~Allow other feed formats as input - for example 'podcast://example.com/feed'~~
 * Provide short link for feeds - for example ppoc.dev/x4ed6 -> https://podcastplayerofchoice.com/link/?url=http://example.com/feed
 * Redirect root to API documentation page on [podcastplayerofchoice.com](https://podcastplayerofchoice.com/)
