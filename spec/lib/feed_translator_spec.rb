@@ -49,15 +49,15 @@ describe FeedTranslator do
     #   end
     # end
 
-    describe "#body[:desktop][:default]" do
-      it "[:feed_title] = 'Default'" do
-        expect(feed.body[:desktop][:default][:feed_title]).to eq("Default")
-      end
+    # describe "#body[:desktop][:default]" do
+    #   it "[:feed_title] = 'Default'" do
+    #     expect(feed.body[:desktop][:default][:feed_title]).to eq("Default")
+    #   end
 
-      it "[:feed_url] = 'feed://example.com/feed'" do
-        expect(feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
-      end
-    end
+    #   it "[:feed_url] = 'feed://example.com/feed'" do
+    #     expect(feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
+    #   end
+    # end
 
     describe "#body[:desktop][:rss]" do
       it "[:feed_title] = 'RSS'" do
