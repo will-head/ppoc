@@ -145,15 +145,15 @@ describe FeedTranslator do
     #   end
     # end
 
-    describe "#body[:ios][:castro]" do
-      it "[:feed_title] = 'Castro'" do
-        expect(feed.body[:ios][:castro][:feed_title]).to eq("Castro")
-      end
+    # describe "#body[:ios][:castro]" do
+    #   it "[:feed_title] = 'Castro'" do
+    #     expect(feed.body[:ios][:castro][:feed_title]).to eq("Castro")
+    #   end
 
-      it "[:feed_url] = 'castro://subscribe/example.com/feed'" do
-        expect(feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
-      end
-    end
+    #   it "[:feed_url] = 'castro://subscribe/example.com/feed'" do
+    #     expect(feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+    #   end
+    # end
 
     describe "#body[:ios][:pocket_casts]" do
       it "[:feed_title] = 'Pocket Casts'" do

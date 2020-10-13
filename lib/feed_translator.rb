@@ -29,6 +29,12 @@ class FeedTranslator
   alias_method :itpc, :format_feed_with_new_scheme
   alias_method :podcast, :format_feed_with_new_scheme
 
+  def format_feed_with_new_scheme_add_subscribe
+    add_feed_prefix(replace_feed_scheme(@uri, __callee__.to_s), "subscribe/")
+  end
+
+  alias_method :castro, :format_feed_with_new_scheme_add_subscribe
+
   def format_feed_with_new_scheme_add_x_callback_url
     @source_feed = remove_feed_prefix(@request, "subscribe/") \
       if feed_prefix?(@source_feed, "subscribe/")
@@ -114,14 +120,9 @@ class FeedTranslator
     }
   end
 
-  def format_feed_with_new_scheme_add_subscribe
-    add_feed_prefix(replace_feed_scheme(@uri, __callee__.to_s), "subscribe/")
-  end
-
   alias_method :pcast, :format_feed_with_new_scheme
   alias_method :downcast, :format_feed_with_new_scheme
 
-  alias_method :castro, :format_feed_with_new_scheme_add_subscribe
   alias_method :pktc, :format_feed_with_new_scheme_add_subscribe
 
   def replace_feed_scheme(uri, scheme)
@@ -145,6 +146,7 @@ class FeedTranslator
   end
   # rubocop:disable Style/AccessModifierDeclarations
   private :format_feed_with_new_scheme
+  private :format_feed_with_new_scheme_add_subscribe
   private :format_feed_with_new_scheme_add_x_callback_url
   # rubocop:enable Style/AccessModifierDeclarations
 end
