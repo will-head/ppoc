@@ -74,42 +74,6 @@ RSpec.describe Api::V1::FeedsController, type: :controller do
       end
     end
 
-    context "with keys" do
-      let(:source_feed) { "http://example.com/feed" }
-
-      it "has request, desktop, ios and android keys" do
-        expect(json_body.keys).to contain_exactly("request", "desktop", "ios", "android")
-      end
-
-      it "request key has a feed key" do
-        expect(json_body["request"].keys).to contain_exactly("feed")
-      end
-
-      it "desktop key has default, rss, itunes and apple_podcasts keys" do
-        expect(json_body["desktop"].keys).to contain_exactly("default", "rss", "itunes", "apple_podcasts")
-      end
-
-      it "desktop default key has feed_title and feed_url keys" do
-        expect(json_body["desktop"]["default"].keys).to contain_exactly("feed_title", "feed_url")
-      end
-
-      it "ios has default, apple_podcasts, overcast, castro, pocket_casts and downcast keys" do
-        expect(json_body["ios"].keys).to contain_exactly("default", "apple_podcasts", "overcast", "castro", "pocket_casts", "downcast")
-      end
-
-      it "ios default key has feed_title and feed_url keys" do
-        expect(json_body["ios"]["default"].keys).to contain_exactly("feed_title", "feed_url")
-      end
-
-      it "android has default key" do
-        expect(json_body["android"].keys).to contain_exactly("default")
-      end
-
-      it "android default key has feed_title and feed_url keys" do
-        expect(json_body["android"]["default"].keys).to contain_exactly("feed_title", "feed_url")
-      end
-    end
-
     context "with different players" do
       let(:source_feed) { "http://example.com/feed" }
 
