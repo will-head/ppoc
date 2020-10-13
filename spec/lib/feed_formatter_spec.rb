@@ -10,6 +10,7 @@ describe FeedFormatter do
 
     before(:each) do
       allow(translated_feed).to receive(:request).and_return('http://example.com/feed')
+      allow(translated_feed).to receive(:feed).and_return('feed://example.com/feed')
     end
 
     describe "#body" do

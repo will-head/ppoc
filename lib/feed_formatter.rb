@@ -15,7 +15,7 @@ class FeedFormatter
 
   def desktop
     { 
-      default: { feed_title: "Default", feed_url: "feed://example.com/feed" },
+      default: { feed_title: "Default", feed_url: @translated_feed.feed },
       rss: nil,
       itunes: nil,
       apple_podcasts: nil
