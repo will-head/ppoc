@@ -16,6 +16,14 @@ describe FeedFormatter do
       it "includes :desktop key" do
         expect(formatted_feed.body).to have_key(:desktop)
       end
+
+      it "includes :ios key" do
+        expect(formatted_feed.body).to have_key(:ios)
+      end
+
+      it "includes :android key" do
+        expect(formatted_feed.body).to have_key(:android)
+      end
     end
   end
 end

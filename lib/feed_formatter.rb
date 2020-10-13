@@ -6,7 +6,9 @@ class FeedFormatter
   def body
     {
       request: nil,
-      desktop: nil
+      desktop: nil,
+      ios: nil,
+      android: nil
     }
   end
 
