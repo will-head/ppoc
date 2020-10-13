@@ -35,5 +35,23 @@ describe FeedFormatter do
         expect(formatted_feed.body[:request][:feed]).to eq("http://example.com/feed")
       end
     end
+
+    describe "#body[:desktop]" do
+      it "includes :default key" do
+        expect(formatted_feed.body[:desktop]).to have_key(:default)
+      end
+
+      it "includes :rss key" do
+        expect(formatted_feed.body[:desktop]).to have_key(:rss)
+      end
+
+      it "includes :itunes key" do
+        expect(formatted_feed.body[:desktop]).to have_key(:itunes)
+      end
+
+      it "includes :apple_podcasts key" do
+        expect(formatted_feed.body[:desktop]).to have_key(:apple_podcasts)
+      end
+    end
   end
 end

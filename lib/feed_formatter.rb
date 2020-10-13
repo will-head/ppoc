@@ -7,7 +7,7 @@ class FeedFormatter
   def body
     {
       request: { feed: @translated_feed.request },
-      desktop: nil,
+      desktop: { default: nil, rss: nil, itunes: nil, apple_podcasts: nil },
       ios: nil,
       android: nil
     }
