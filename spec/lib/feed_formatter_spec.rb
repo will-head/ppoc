@@ -12,6 +12,10 @@ describe FeedFormatter do
       it "includes :request key" do
         expect(formatted_feed.body).to have_key(:request)
       end
+
+      it "includes :desktop key" do
+        expect(formatted_feed.body).to have_key(:desktop)
+      end
     end
   end
 end
