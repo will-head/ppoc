@@ -3,10 +3,14 @@ require 'feed_formatter'
 
 describe FeedFormatter do
 
-  context "with translated feed" do 
+  context "with translated feed: http://example.com/feed" do 
     subject(:formatted_feed) { described_class.new(translated_feed) }
 
     let(:translated_feed) { instance_double('FeedTranslator') }
+
+    before(:each) do
+      allow(translated_feed).to receive(:request).and_return('http://example.com/feed')
+    end
 
     describe "#body" do
       it "includes :request key" do
