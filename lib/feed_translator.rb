@@ -27,6 +27,7 @@ class FeedTranslator
   alias_method :feed, :format_feed_with_new_scheme
   alias_method :http, :format_feed_with_new_scheme
   alias_method :itpc, :format_feed_with_new_scheme
+  alias_method :podcast, :format_feed_with_new_scheme
 
   def valid_request?
     return false unless @request.is_a?(String)
@@ -115,7 +116,6 @@ class FeedTranslator
     __callee__.to_s + "://x-callback-url/add?url=" + CGI::escape(@source_feed)
   end
 
-  alias_method :podcast, :format_feed_with_new_scheme
   alias_method :pcast, :format_feed_with_new_scheme
   alias_method :downcast, :format_feed_with_new_scheme
 

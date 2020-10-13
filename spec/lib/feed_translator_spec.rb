@@ -79,15 +79,15 @@ describe FeedTranslator do
     #   end
     # end
 
-    describe "#body[:desktop][:apple_podcasts]" do
-      it "[:feed_title] = 'Apple Podcasts'" do
-        expect(feed.body[:desktop][:apple_podcasts][:feed_title]).to eq("Apple Podcasts")
-      end
+    # describe "#body[:desktop][:apple_podcasts]" do
+    #   it "[:feed_title] = 'Apple Podcasts'" do
+    #     expect(feed.body[:desktop][:apple_podcasts][:feed_title]).to eq("Apple Podcasts")
+    #   end
 
-      it "[:feed_url] = 'podcast://example.com/feed'" do
-        expect(feed.body[:desktop][:apple_podcasts][:feed_url]).to eq("podcast://example.com/feed")
-      end
-    end
+    #   it "[:feed_url] = 'podcast://example.com/feed'" do
+    #     expect(feed.body[:desktop][:apple_podcasts][:feed_url]).to eq("podcast://example.com/feed")
+    #   end
+    # end
 
     describe "#body[:ios]" do
       it "includes :default key" do
