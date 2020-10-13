@@ -20,10 +20,6 @@ RSpec.describe Api::V1::FeedsController, type: :controller do
       it "returns json_body['request']['feed'] = http://example.com/feed" do
         expect(json_body["request"]["feed"]).to eq("http://example.com/feed")
       end
-
-      it "returns json_body['desktop']['itunes']['feed_url'] = itpc://example.com/feed" do
-        expect(json_body["desktop"]["itunes"]["feed_url"]).to eq("itpc://example.com/feed")
-      end
     end
 
     context "with invalid input 'not a valid feed'" do
@@ -36,10 +32,6 @@ RSpec.describe Api::V1::FeedsController, type: :controller do
       it "returns json_body['request']['feed'] = 'not a valid feed'" do
         expect(json_body["request"]["feed"]).to eq("not a valid feed")
       end
-
-      # it "returns itpc://example.com/feed" do
-      #   expect(json_body["desktop"]["itunes"]["feed_url"]).to eq("itpc://example.com/feed")
-      # end
     end
   end
 end
