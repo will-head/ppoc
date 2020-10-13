@@ -137,7 +137,7 @@ On success, the above command returns JSON structured like this:
 
 ## Improvements
 
-* Return status in JSON body
+* ~~Return status in JSON body~~
 * ~~Return 422 status and Error in JSON for invalid input feed~~
 * ~~Remove redundant tests from FeedsController~~
 * ~~Split FeedTransator into separate classes~~
