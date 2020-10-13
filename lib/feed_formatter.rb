@@ -5,7 +5,7 @@ class FeedFormatter
 
   def body
     {
-      request: nil,
+      request: { feed: 'http://example.com/feed' },
       desktop: nil,
       ios: nil,
       android: nil

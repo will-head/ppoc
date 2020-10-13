@@ -25,5 +25,11 @@ describe FeedFormatter do
         expect(formatted_feed.body).to have_key(:android)
       end
     end
+
+    describe "#body[:request]" do
+      it "[:feed] = 'http://example.com/feed'" do 
+        expect(formatted_feed.body[:request][:feed]).to eq("http://example.com/feed")
+      end
+    end
   end
 end
