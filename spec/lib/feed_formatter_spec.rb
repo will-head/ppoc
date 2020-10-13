@@ -9,6 +9,7 @@ describe FeedFormatter do
     let(:translated_feed) { instance_double('FeedTranslator') }
 
     before(:each) do
+      allow(translated_feed).to receive(:valid_request?).and_return('http://example.com/feed')
       allow(translated_feed).to receive(:request).and_return('http://example.com/feed')
       allow(translated_feed).to receive(:feed).and_return('feed://example.com/feed')
       allow(translated_feed).to receive(:http).and_return('http://example.com/feed')
@@ -22,6 +23,10 @@ describe FeedFormatter do
     end
 
     describe "#body" do
+      it "includes :status key" do
+        expect(formatted_feed.body).to have_key(:status)
+      end
+
       it "includes :request key" do
         expect(formatted_feed.body).to have_key(:request)
       end
@@ -36,6 +41,12 @@ describe FeedFormatter do
 
       it "includes :android key" do
         expect(formatted_feed.body).to have_key(:android)
+      end
+    end
+
+    describe "#body[:status]" do
+      it "returns 200" do
+        expect(formatted_feed.body[:status]).to eq(200)
       end
     end
 
@@ -202,6 +213,23 @@ describe FeedFormatter do
 
       it "[:feed_url] = 'pcast://example.com/feed'" do
         expect(formatted_feed.body[:android][:default][:feed_url]).to eq("pcast://example.com/feed")
+      end
+    end
+  end
+
+  context "with invalid translated feed: 'not valid'" do 
+    subject(:formatted_feed) { described_class.new(translated_feed) }
+
+    let(:translated_feed) { instance_double('FeedTranslator') }
+
+    before(:each) do
+      allow(translated_feed).to receive(:valid_request?).and_return(false)
+      allow(translated_feed).to receive(:request).and_return('http://example.com/feed')
+    end
+
+    describe "#body[:status]" do
+      it "returns 422" do
+        expect(formatted_feed.body[:status]).to eq(422)
       end
     end
   end
