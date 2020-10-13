@@ -97,5 +97,31 @@ describe FeedFormatter do
         expect(formatted_feed.body[:desktop][:apple_podcasts][:feed_url]).to eq("podcast://example.com/feed")
       end
     end
+
+    describe "#body[:ios]" do
+      it "includes :default key" do
+        expect(formatted_feed.body[:ios]).to have_key(:default)
+      end
+
+      it "includes :apple_podcasts key" do
+        expect(formatted_feed.body[:ios]).to have_key(:apple_podcasts)
+      end
+
+      it "includes :overcast key" do
+        expect(formatted_feed.body[:ios]).to have_key(:overcast)
+      end
+
+      it "includes :castro key" do
+        expect(formatted_feed.body[:ios]).to have_key(:castro)
+      end
+
+      it "includes :pocket_casts key" do
+        expect(formatted_feed.body[:ios]).to have_key(:pocket_casts)
+      end
+
+      it "includes :downcast key" do
+        expect(formatted_feed.body[:ios]).to have_key(:downcast)
+      end
+    end
   end
 end

@@ -89,31 +89,31 @@ describe FeedTranslator do
     #   end
     # end
 
-    describe "#body[:ios]" do
-      it "includes :default key" do
-        expect(feed.body[:ios]).to have_key(:default)
-      end
+    # describe "#body[:ios]" do
+    #   it "includes :default key" do
+    #     expect(feed.body[:ios]).to have_key(:default)
+    #   end
 
-      it "includes :apple_podcasts key" do
-        expect(feed.body[:ios]).to have_key(:apple_podcasts)
-      end
+    #   it "includes :apple_podcasts key" do
+    #     expect(feed.body[:ios]).to have_key(:apple_podcasts)
+    #   end
 
-      it "includes :overcast key" do
-        expect(feed.body[:ios]).to have_key(:overcast)
-      end
+    #   it "includes :overcast key" do
+    #     expect(feed.body[:ios]).to have_key(:overcast)
+    #   end
 
-      it "includes :castro key" do
-        expect(feed.body[:ios]).to have_key(:castro)
-      end
+    #   it "includes :castro key" do
+    #     expect(feed.body[:ios]).to have_key(:castro)
+    #   end
 
-      it "includes :pocket_casts key" do
-        expect(feed.body[:ios]).to have_key(:pocket_casts)
-      end
+    #   it "includes :pocket_casts key" do
+    #     expect(feed.body[:ios]).to have_key(:pocket_casts)
+    #   end
 
-      it "includes :downcast key" do
-        expect(feed.body[:ios]).to have_key(:downcast)
-      end
-    end
+    #   it "includes :downcast key" do
+    #     expect(feed.body[:ios]).to have_key(:downcast)
+    #   end
+    # end
 
     describe "#body[:ios][:default]" do
       it "[:feed_title] = 'Default'" do
