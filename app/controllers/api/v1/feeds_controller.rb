@@ -10,7 +10,7 @@ module Api::V1
         @formatted_feed = FeedFormatter.new(@translated_feed)
         render json: @formatted_feed.body
       else
-        render json: { }, status: 422
+        render json: { request: { feed: @translated_feed.request } }, status: 422
       end
     end
 
