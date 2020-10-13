@@ -22,6 +22,10 @@ describe FeedFormatter do
     end
 
     describe "#body" do
+      it "includes :status key" do
+        expect(formatted_feed.body).to have_key(:status)
+      end
+
       it "includes :request key" do
         expect(formatted_feed.body).to have_key(:request)
       end
