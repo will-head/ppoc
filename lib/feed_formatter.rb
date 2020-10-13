@@ -5,23 +5,29 @@ class FeedFormatter
   end
 
   def body
-    if @translated_feed.valid_request?
-      return {
-        status: 200,
-        request: request_key_value,
-        desktop: desktop_key_value,
-        ios: ios_key_value,
-        android: android_key_value
-      }
-    else
-      return {
-        status: 422,
-        request: request_key_value      
-      }
-    end
+    return invalid_request_body unless @translated_feed.valid_request?
+
+    valid_request_body
   end
 
   private
+
+  def valid_request_body
+    {
+      status: 200,
+      request: request_key_value,
+      desktop: desktop_key_value,
+      ios: ios_key_value,
+      android: android_key_value
+    }
+  end
+
+  def invalid_request_body
+    {
+      status: 422,
+      request: request_key_value   
+    }
+  end
 
   def request_key_value
     {

@@ -225,15 +225,6 @@ describe FeedFormatter do
     before(:each) do
       allow(translated_feed).to receive(:valid_request?).and_return(false)
       allow(translated_feed).to receive(:request).and_return('http://example.com/feed')
-      # allow(translated_feed).to receive(:feed).and_return('feed://example.com/feed')
-      # allow(translated_feed).to receive(:http).and_return('http://example.com/feed')
-      # allow(translated_feed).to receive(:itpc).and_return('itpc://example.com/feed')
-      # allow(translated_feed).to receive(:podcast).and_return('podcast://example.com/feed')
-      # allow(translated_feed).to receive(:overcast).and_return('overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed')
-      # allow(translated_feed).to receive(:castro).and_return('castro://subscribe/example.com/feed')
-      # allow(translated_feed).to receive(:pktc).and_return('pktc://subscribe/example.com/feed')
-      # allow(translated_feed).to receive(:downcast).and_return('downcast://example.com/feed')
-      # allow(translated_feed).to receive(:pcast).and_return('pcast://example.com/feed')
     end
 
     describe "#body[:status]" do
