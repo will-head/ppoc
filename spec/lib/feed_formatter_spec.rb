@@ -123,5 +123,15 @@ describe FeedFormatter do
         expect(formatted_feed.body[:ios]).to have_key(:downcast)
       end
     end
+
+    describe "#body[:ios][:default]" do
+      it "[:feed_title] = 'Default'" do
+        expect(formatted_feed.body[:ios][:default][:feed_title]).to eq("Default")
+      end
+
+      it "[:feed_url] = 'feed://example.com/feed'" do
+        expect(formatted_feed.body[:ios][:default][:feed_url]).to eq("feed://example.com/feed")
+      end
+    end
   end
 end
