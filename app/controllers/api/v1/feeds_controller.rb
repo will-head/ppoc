@@ -6,8 +6,12 @@ module Api::V1
 
     def create
       @translated_feed = FeedTranslator.new(profile_params.fetch(:feed))
-      @formatted_feed = FeedFormatter.new(@translated_feed)
-      render json: @formatted_feed.body
+      if @translated_feed.valid_request?
+        @formatted_feed = FeedFormatter.new(@translated_feed)
+        render json: @formatted_feed.body
+      else
+        render json: { }, status: 422
+      end
     end
 
     protected
