@@ -17,7 +17,7 @@ class FeedFormatter
     { 
       default: { feed_title: "Default", feed_url: @translated_feed.feed },
       rss: { feed_title: "RSS", feed_url: @translated_feed.http },
-      itunes: nil,
+      itunes: { feed_title: "iTunes", feed_url: @translated_feed.itpc },
       apple_podcasts: nil
     }
   end
