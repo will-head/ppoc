@@ -17,7 +17,11 @@ RSpec.describe Api::V1::FeedsController, type: :controller do
         expect(response).to have_http_status(:ok)
       end
 
-      it "returns itpc://example.com/feed" do
+      it "returns json_body['request']['feed'] = http://example.com/feed" do
+        expect(json_body["request"]["feed"]).to eq("http://example.com/feed")
+      end
+
+      it "returns json_body['desktop']['itunes']['feed_url'] = itpc://example.com/feed" do
         expect(json_body["desktop"]["itunes"]["feed_url"]).to eq("itpc://example.com/feed")
       end
     end
