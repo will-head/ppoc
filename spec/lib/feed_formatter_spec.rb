@@ -43,6 +43,13 @@ describe FeedFormatter do
       end
     end
 
+    describe "#body[:status]" do
+      it "with valid feed" do
+        allow(translated_feed).to receive(:valid_request?).and_return('http://example.com/feed')
+        expect(formatted_feed.body[:status]).to eq(200)
+      end
+    end
+
     describe "#body[:request]" do
       it "[:feed] = 'http://example.com/feed'" do 
         expect(formatted_feed.body[:request][:feed]).to eq("http://example.com/feed")

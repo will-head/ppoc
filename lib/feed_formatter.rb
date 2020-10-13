@@ -6,7 +6,7 @@ class FeedFormatter
 
   def body
     {
-      status: nil,
+      status: 200,
       request: request_key_value,
       desktop: desktop_key_value,
       ios: ios_key_value,
