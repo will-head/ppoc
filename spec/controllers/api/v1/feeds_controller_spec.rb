@@ -29,8 +29,12 @@ RSpec.describe Api::V1::FeedsController, type: :controller do
     context "with invalid input 'not a valid feed'" do
       let(:source_feed) { "not a valid feed" }
 
-      it "returns http unprocessable_entity" do
-        expect(response).to have_http_status(:unprocessable_entity)
+      it "returns http ok" do
+        expect(response).to have_http_status(:ok)
+      end
+
+      it "returns json_body['status'] = 422" do
+        expect(json_body["status"]).to eq(422)
       end
 
       it "returns json_body['request']['feed'] = 'not a valid feed'" do
