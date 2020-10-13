@@ -17,6 +17,10 @@ RSpec.describe Api::V1::FeedsController, type: :controller do
         expect(response).to have_http_status(:ok)
       end
 
+      it "returns json_body['status'] = 200" do
+        expect(json_body["status"]).to eq(200)
+      end
+
       it "returns json_body['request']['feed'] = http://example.com/feed" do
         expect(json_body["request"]["feed"]).to eq("http://example.com/feed")
       end
