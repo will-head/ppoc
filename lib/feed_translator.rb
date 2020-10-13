@@ -57,6 +57,8 @@ class FeedTranslator
     false
   end
 
+  private
+
   def valid_scheme?(uri)
     if uri.scheme.in?(VALID_SCHEMES)
       uri = xcallback_scheme(uri)
@@ -83,8 +85,6 @@ class FeedTranslator
     end
     uri
   end
-
-  private
 
   def replace_feed_scheme(uri, scheme)
     uri.scheme = scheme
