@@ -35,7 +35,7 @@ class FeedFormatter
 
   def android
     {
-      default: { feed_title: "Default", feed_url: nil }
+      default: { feed_title: "Default", feed_url: @translated_feed.pcast }
     }
   end
 end

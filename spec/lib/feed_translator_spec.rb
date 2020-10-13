@@ -4,8 +4,8 @@ require 'feed_translator'
 describe FeedTranslator do
   subject(:feed) { described_class.new(source_feed) }
 
-  context "with http://example.com/feed" do 
-    let(:source_feed) { "http://example.com/feed" }
+  # context "with http://example.com/feed" do 
+  #   let(:source_feed) { "http://example.com/feed" }
 
     # describe "#body" do
     #   it "includes :request key" do
@@ -181,16 +181,16 @@ describe FeedTranslator do
     #   end
     # end
 
-    describe "#body[:android][:default]" do
-      it "[:feed_title] = 'Default'" do
-        expect(feed.body[:android][:default][:feed_title]).to eq("Default")
-      end
+    # describe "#body[:android][:default]" do
+    #   it "[:feed_title] = 'Default'" do
+    #     expect(feed.body[:android][:default][:feed_title]).to eq("Default")
+    #   end
 
-      it "[:feed_url] = 'pcast://example.com/feed'" do
-        expect(feed.body[:android][:default][:feed_url]).to eq("pcast://example.com/feed")
-      end
-    end
-  end
+    #   it "[:feed_url] = 'pcast://example.com/feed'" do
+    #     expect(feed.body[:android][:default][:feed_url]).to eq("pcast://example.com/feed")
+    #   end
+    # end
+  # end
 
   context "with valid input" do 
     describe "http scheme" do 

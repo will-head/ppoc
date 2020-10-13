@@ -18,6 +18,7 @@ describe FeedFormatter do
       allow(translated_feed).to receive(:castro).and_return('castro://subscribe/example.com/feed')
       allow(translated_feed).to receive(:pktc).and_return('pktc://subscribe/example.com/feed')
       allow(translated_feed).to receive(:downcast).and_return('downcast://example.com/feed')
+      allow(translated_feed).to receive(:pcast).and_return('pcast://example.com/feed')
     end
 
     describe "#body" do
@@ -191,6 +192,16 @@ describe FeedFormatter do
     describe "#body[:android]" do
       it "includes :default key" do
         expect(formatted_feed.body[:android]).to have_key(:default)
+      end
+    end
+
+    describe "#body[:android][:default]" do
+      it "[:feed_title] = 'Default'" do
+        expect(formatted_feed.body[:android][:default][:feed_title]).to eq("Default")
+      end
+
+      it "[:feed_url] = 'pcast://example.com/feed'" do
+        expect(formatted_feed.body[:android][:default][:feed_url]).to eq("pcast://example.com/feed")
       end
     end
   end
