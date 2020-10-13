@@ -11,6 +11,7 @@ describe FeedFormatter do
     before(:each) do
       allow(translated_feed).to receive(:request).and_return('http://example.com/feed')
       allow(translated_feed).to receive(:feed).and_return('feed://example.com/feed')
+      allow(translated_feed).to receive(:http).and_return('http://example.com/feed')
     end
 
     describe "#body" do
@@ -62,6 +63,16 @@ describe FeedFormatter do
 
       it "[:feed_url] = 'feed://example.com/feed'" do
         expect(formatted_feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
+      end
+    end
+
+    describe "#body[:desktop][:rss]" do
+      it "[:feed_title] = 'RSS'" do
+        expect(formatted_feed.body[:desktop][:rss][:feed_title]).to eq("RSS")
+      end
+
+      it "[:feed_url] = 'http://example.com/feed'" do
+        expect(formatted_feed.body[:desktop][:rss][:feed_url]).to eq("http://example.com/feed")
       end
     end
   end
