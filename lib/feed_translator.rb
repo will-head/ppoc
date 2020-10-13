@@ -28,6 +28,7 @@ class FeedTranslator
   alias_method :http, :format_feed_with_new_scheme
   alias_method :itpc, :format_feed_with_new_scheme
   alias_method :podcast, :format_feed_with_new_scheme
+  alias_method :downcast, :format_feed_with_new_scheme
 
   def format_feed_with_new_scheme_add_subscribe
     add_feed_prefix(replace_feed_scheme(@uri, __callee__.to_s), "subscribe/")
@@ -122,7 +123,6 @@ class FeedTranslator
   end
 
   alias_method :pcast, :format_feed_with_new_scheme
-  alias_method :downcast, :format_feed_with_new_scheme
 
   def replace_feed_scheme(uri, scheme)
     uri.scheme = scheme
