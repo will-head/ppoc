@@ -12,6 +12,8 @@ class FeedTranslator
 
   XCALLBACK_SCHEMES = ["overcast"]
 
+  attr_reader :request 
+
   def initialize(request)
     @request = request
     @feed = @request
@@ -57,7 +59,7 @@ class FeedTranslator
 
   def body
     {
-      request: request,
+      request: { feed: @request },
       desktop: desktop,
       ios: ios,
       android: android
@@ -65,10 +67,6 @@ class FeedTranslator
   end
 
   private
-
-  def request
-    { feed: @request }
-  end
 
   def desktop
     { 
