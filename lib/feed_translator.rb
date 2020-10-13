@@ -29,6 +29,17 @@ class FeedTranslator
   alias_method :itpc, :format_feed_with_new_scheme
   alias_method :podcast, :format_feed_with_new_scheme
 
+  def format_feed_with_new_scheme_add_x_callback_url
+    @source_feed = remove_feed_prefix(@request, "subscribe/") \
+      if feed_prefix?(@source_feed, "subscribe/")
+    feed_uri = Addressable::URI.parse(@source_feed)
+    @source_feed = replace_feed_scheme(feed_uri, "http") \
+      unless feed_uri.scheme.in?(["http", "https"]) 
+    __callee__.to_s + "://x-callback-url/add?url=" + CGI::escape(@source_feed)
+  end
+
+  alias_method :overcast, :format_feed_with_new_scheme_add_x_callback_url
+
   def valid_request?
     return false unless @request.is_a?(String)
 
@@ -107,22 +118,11 @@ class FeedTranslator
     add_feed_prefix(replace_feed_scheme(@uri, __callee__.to_s), "subscribe/")
   end
 
-  def format_feed_with_new_scheme_add_x_callback_url
-    @source_feed = remove_feed_prefix(@request, "subscribe/") \
-      if feed_prefix?(@source_feed, "subscribe/")
-    feed_uri = Addressable::URI.parse(@source_feed)
-    @source_feed = replace_feed_scheme(feed_uri, "http") \
-      unless feed_uri.scheme.in?(["http", "https"]) 
-    __callee__.to_s + "://x-callback-url/add?url=" + CGI::escape(@source_feed)
-  end
-
   alias_method :pcast, :format_feed_with_new_scheme
   alias_method :downcast, :format_feed_with_new_scheme
 
   alias_method :castro, :format_feed_with_new_scheme_add_subscribe
   alias_method :pktc, :format_feed_with_new_scheme_add_subscribe
-
-  alias_method :overcast, :format_feed_with_new_scheme_add_x_callback_url
 
   def replace_feed_scheme(uri, scheme)
     uri.scheme = scheme
@@ -145,6 +145,7 @@ class FeedTranslator
   end
   # rubocop:disable Style/AccessModifierDeclarations
   private :format_feed_with_new_scheme
+  private :format_feed_with_new_scheme_add_x_callback_url
   # rubocop:enable Style/AccessModifierDeclarations
 end
 # rubocop:enable Metrics/ClassLength

@@ -14,6 +14,7 @@ describe FeedFormatter do
       allow(translated_feed).to receive(:http).and_return('http://example.com/feed')
       allow(translated_feed).to receive(:itpc).and_return('itpc://example.com/feed')
       allow(translated_feed).to receive(:podcast).and_return('podcast://example.com/feed')
+      allow(translated_feed).to receive(:overcast).and_return('overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed')
     end
 
     describe "#body" do
@@ -141,6 +142,16 @@ describe FeedFormatter do
 
       it "[:feed_url] = 'podcast://example.com/feed'" do
         expect(formatted_feed.body[:ios][:apple_podcasts][:feed_url]).to eq("podcast://example.com/feed")
+      end
+    end
+
+    describe "#body[:ios][:overcast]" do
+      it "[:feed_title] = 'Overcast'" do
+        expect(formatted_feed.body[:ios][:overcast][:feed_title]).to eq("Overcast")
+      end
+
+      it "[:feed_url] = 'overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed'" do
+        expect(formatted_feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
       end
     end
   end

@@ -135,15 +135,15 @@ describe FeedTranslator do
     #   end
     # end
 
-    describe "#body[:ios][:overcast]" do
-      it "[:feed_title] = 'Overcast'" do
-        expect(feed.body[:ios][:overcast][:feed_title]).to eq("Overcast")
-      end
+    # describe "#body[:ios][:overcast]" do
+    #   it "[:feed_title] = 'Overcast'" do
+    #     expect(feed.body[:ios][:overcast][:feed_title]).to eq("Overcast")
+    #   end
 
-      it "[:feed_url] = 'overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed'" do
-        expect(feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
-      end
-    end
+    #   it "[:feed_url] = 'overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed'" do
+    #     expect(feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+    #   end
+    # end
 
     describe "#body[:ios][:castro]" do
       it "[:feed_title] = 'Castro'" do
