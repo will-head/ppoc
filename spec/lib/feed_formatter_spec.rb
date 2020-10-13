@@ -133,5 +133,15 @@ describe FeedFormatter do
         expect(formatted_feed.body[:ios][:default][:feed_url]).to eq("feed://example.com/feed")
       end
     end
+
+    describe "#body[:ios][:apple_podcasts]" do
+      it "[:feed_title] = 'Apple Podcasts'" do
+        expect(formatted_feed.body[:ios][:apple_podcasts][:feed_title]).to eq("Apple Podcasts")
+      end
+
+      it "[:feed_url] = 'podcast://example.com/feed'" do
+        expect(formatted_feed.body[:ios][:apple_podcasts][:feed_url]).to eq("podcast://example.com/feed")
+      end
+    end
   end
 end

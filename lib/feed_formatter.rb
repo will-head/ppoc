@@ -25,7 +25,7 @@ class FeedFormatter
   def ios
     {
       default: { feed_title: "Default", feed_url: @translated_feed.feed },
-      apple_podcasts: { feed_title: "Apple Podcasts", feed_url: nil },
+      apple_podcasts: { feed_title: "Apple Podcasts", feed_url: @translated_feed.podcast },
       overcast: { feed_title: "Overcast", feed_url: nil },
       castro: { feed_title: "Castro", feed_url: nil },
       pocket_casts: { feed_title: "Pocket Casts", feed_url: nil },
