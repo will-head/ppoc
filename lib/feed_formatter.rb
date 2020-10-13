@@ -9,7 +9,7 @@ class FeedFormatter
       request: { feed: @translated_feed.request },
       desktop: desktop,
       ios: ios,
-      android: nil
+      android: android
     }
   end
 
@@ -30,6 +30,12 @@ class FeedFormatter
       castro: { feed_title: "Castro", feed_url: @translated_feed.castro },
       pocket_casts: { feed_title: "Pocket Casts", feed_url: @translated_feed.pktc },
       downcast: { feed_title: "Downcast", feed_url: @translated_feed.downcast }
+    }
+  end
+
+  def android
+    {
+      default: { feed_title: "Default", feed_url: nil }
     }
   end
 end

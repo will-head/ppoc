@@ -175,11 +175,11 @@ describe FeedTranslator do
     #   end
     # end
 
-    describe "#body[:android]" do
-      it "includes :default key" do
-        expect(feed.body[:android]).to have_key(:default)
-      end
-    end
+    # describe "#body[:android]" do
+    #   it "includes :default key" do
+    #     expect(feed.body[:android]).to have_key(:default)
+    #   end
+    # end
 
     describe "#body[:android][:default]" do
       it "[:feed_title] = 'Default'" do

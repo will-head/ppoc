@@ -187,5 +187,11 @@ describe FeedFormatter do
         expect(formatted_feed.body[:ios][:downcast][:feed_url]).to eq("downcast://example.com/feed")
       end
     end
+
+    describe "#body[:android]" do
+      it "includes :default key" do
+        expect(formatted_feed.body[:android]).to have_key(:default)
+      end
+    end
   end
 end
