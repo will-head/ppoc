@@ -34,6 +34,7 @@ class FeedTranslator
   end
 
   alias_method :castro, :format_feed_with_new_scheme_add_subscribe
+  alias_method :pktc, :format_feed_with_new_scheme_add_subscribe
 
   def format_feed_with_new_scheme_add_x_callback_url
     @source_feed = remove_feed_prefix(@request, "subscribe/") \
@@ -122,8 +123,6 @@ class FeedTranslator
 
   alias_method :pcast, :format_feed_with_new_scheme
   alias_method :downcast, :format_feed_with_new_scheme
-
-  alias_method :pktc, :format_feed_with_new_scheme_add_subscribe
 
   def replace_feed_scheme(uri, scheme)
     uri.scheme = scheme

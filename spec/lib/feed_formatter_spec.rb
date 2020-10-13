@@ -16,6 +16,7 @@ describe FeedFormatter do
       allow(translated_feed).to receive(:podcast).and_return('podcast://example.com/feed')
       allow(translated_feed).to receive(:overcast).and_return('overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed')
       allow(translated_feed).to receive(:castro).and_return('castro://subscribe/example.com/feed')
+      allow(translated_feed).to receive(:pktc).and_return('pktc://subscribe/example.com/feed')
     end
 
     describe "#body" do
@@ -163,6 +164,16 @@ describe FeedFormatter do
 
       it "[:feed_url] = 'castro://subscribe/example.com/feed'" do
         expect(formatted_feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+      end
+    end
+
+    describe "#body[:ios][:pocket_casts]" do
+      it "[:feed_title] = 'Pocket Casts'" do
+        expect(formatted_feed.body[:ios][:pocket_casts][:feed_title]).to eq("Pocket Casts")
+      end
+
+      it "[:feed_url] = 'pktc://subscribe/example.com/feed'" do
+        expect(formatted_feed.body[:ios][:pocket_casts][:feed_url]).to eq("pktc://subscribe/example.com/feed")
       end
     end
   end
