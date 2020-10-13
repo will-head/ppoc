@@ -6,14 +6,22 @@ class FeedFormatter
 
   def body
     {
-      request: { feed: @translated_feed.request },
-      desktop: desktop,
-      ios: ios,
-      android: android
+      request: request_key_value,
+      desktop: desktop_key_value,
+      ios: ios_key_value,
+      android: android_key_value
     }
   end
 
-  def desktop
+  private
+
+  def request_key_value
+    {
+      feed: @translated_feed.request
+    }
+  end
+
+  def desktop_key_value
     { 
       default: { feed_title: "Default", feed_url: @translated_feed.feed },
       rss: { feed_title: "RSS", feed_url: @translated_feed.http },
@@ -22,7 +30,7 @@ class FeedFormatter
     }
   end
 
-  def ios
+  def ios_key_value
     {
       default: { feed_title: "Default", feed_url: @translated_feed.feed },
       apple_podcasts: { feed_title: "Apple Podcasts", feed_url: @translated_feed.podcast },
@@ -33,7 +41,7 @@ class FeedFormatter
     }
   end
 
-  def android
+  def android_key_value
     {
       default: { feed_title: "Default", feed_url: @translated_feed.pcast }
     }
