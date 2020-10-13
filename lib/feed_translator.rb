@@ -39,9 +39,9 @@ class FeedTranslator
   def format_feed_with_new_scheme_add_x_callback_url
     @source_feed = remove_feed_prefix(@request, "subscribe/") \
       if feed_prefix?(@source_feed, "subscribe/")
-    feed_uri = Addressable::URI.parse(@source_feed)
-    @source_feed = replace_feed_scheme(feed_uri, "http") \
-      unless feed_uri.scheme.in?(["http", "https"]) 
+    source_feed_uri = Addressable::URI.parse(@source_feed)
+    @source_feed = replace_feed_scheme(source_feed_uri, "http") \
+      unless source_feed_uri.scheme.in?(["http", "https"]) 
     __callee__.to_s + "://x-callback-url/add?url=" + CGI::escape(@source_feed)
   end
 
