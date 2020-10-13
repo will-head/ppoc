@@ -13,6 +13,7 @@ describe FeedFormatter do
       allow(translated_feed).to receive(:feed).and_return('feed://example.com/feed')
       allow(translated_feed).to receive(:http).and_return('http://example.com/feed')
       allow(translated_feed).to receive(:itpc).and_return('itpc://example.com/feed')
+      allow(translated_feed).to receive(:podcast).and_return('podcast://example.com/feed')
     end
 
     describe "#body" do
@@ -84,6 +85,16 @@ describe FeedFormatter do
 
       it "[:feed_url] = 'itpc://example.com/feed'" do
         expect(formatted_feed.body[:desktop][:itunes][:feed_url]).to eq("itpc://example.com/feed")
+      end
+    end
+
+    describe "#body[:desktop][:apple_podcasts]" do
+      it "[:feed_title] = 'Apple Podcasts'" do
+        expect(formatted_feed.body[:desktop][:apple_podcasts][:feed_title]).to eq("Apple Podcasts")
+      end
+
+      it "[:feed_url] = 'podcast://example.com/feed'" do
+        expect(formatted_feed.body[:desktop][:apple_podcasts][:feed_url]).to eq("podcast://example.com/feed")
       end
     end
   end
