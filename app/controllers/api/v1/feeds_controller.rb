@@ -1,4 +1,5 @@
 require 'feed_translator'
+require 'feed_formatter'
 
 module Api::V1
   class FeedsController < ApiController
