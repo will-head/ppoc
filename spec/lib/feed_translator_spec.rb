@@ -7,47 +7,47 @@ describe FeedTranslator do
   context "with http://example.com/feed" do 
     let(:source_feed) { "http://example.com/feed" }
 
-    describe "#body" do
-      it "includes :request key" do
-        expect(feed.body).to have_key(:request)
-      end
+    # describe "#body" do
+    #   it "includes :request key" do
+    #     expect(feed.body).to have_key(:request)
+    #   end
 
-      it "includes :desktop key" do
-        expect(feed.body).to have_key(:desktop)
-      end
+    #   it "includes :desktop key" do
+    #     expect(feed.body).to have_key(:desktop)
+    #   end
 
-      it "includes :ios key" do
-        expect(feed.body).to have_key(:ios)
-      end
+    #   it "includes :ios key" do
+    #     expect(feed.body).to have_key(:ios)
+    #   end
 
-      it "includes :android key" do
-        expect(feed.body).to have_key(:android)
-      end
-    end
+    #   it "includes :android key" do
+    #     expect(feed.body).to have_key(:android)
+    #   end
+    # end
 
-    describe "#body[:request]" do
-      it "[:feed] = 'http://example.com/feed'" do 
-        expect(feed.body[:request][:feed]).to eq("http://example.com/feed")
-      end
-    end
+    # describe "#body[:request]" do
+    #   it "[:feed] = 'http://example.com/feed'" do 
+    #     expect(feed.body[:request][:feed]).to eq("http://example.com/feed")
+    #   end
+    # end
 
-    describe "#body[:desktop]" do
-      it "includes :default key" do
-        expect(feed.body[:desktop]).to have_key(:default)
-      end
+    # describe "#body[:desktop]" do
+    #   it "includes :default key" do
+    #     expect(feed.body[:desktop]).to have_key(:default)
+    #   end
 
-      it "includes :rss key" do
-        expect(feed.body[:desktop]).to have_key(:rss)
-      end
+    #   it "includes :rss key" do
+    #     expect(feed.body[:desktop]).to have_key(:rss)
+    #   end
 
-      it "includes :itunes key" do
-        expect(feed.body[:desktop]).to have_key(:itunes)
-      end
+    #   it "includes :itunes key" do
+    #     expect(feed.body[:desktop]).to have_key(:itunes)
+    #   end
 
-      it "includes :apple_podcasts key" do
-        expect(feed.body[:desktop]).to have_key(:apple_podcasts)
-      end
-    end
+    #   it "includes :apple_podcasts key" do
+    #     expect(feed.body[:desktop]).to have_key(:apple_podcasts)
+    #   end
+    # end
 
     describe "#body[:desktop][:default]" do
       it "[:feed_title] = 'Default'" do
