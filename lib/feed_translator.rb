@@ -2,8 +2,6 @@ require 'addressable/uri'
 require 'cgi'
 require 'open-uri'
 
-# TODO: Refactor into separate classes
-# rubocop:disable Metrics/ClassLength
 class FeedTranslator
   VALID_SCHEMES = ["http", "https", "feed", "itpc", "podcast", 
     "overcast", "castro", "pktc", "downcast", "pcast"]
@@ -86,42 +84,7 @@ class FeedTranslator
     uri
   end
 
-  # def body
-  #   {
-  #     request: { feed: @request },
-  #     desktop: desktop,
-  #     ios: ios,
-  #     android: android
-  #   }
-  # end
-
   private
-
-  # def desktop
-  #   { 
-  #     default: { feed_title: "Default", feed_url: feed },
-  #     rss: { feed_title: "RSS", feed_url: http },
-  #     itunes: { feed_title: "iTunes", feed_url: itpc },
-  #     apple_podcasts: { feed_title: "Apple Podcasts", feed_url: podcast }
-  #   }
-  # end
-
-  # def ios
-  #   {
-  #     default: { feed_title: "Default", feed_url: feed },
-  #     apple_podcasts: { feed_title: "Apple Podcasts", feed_url: podcast },
-  #     overcast: { feed_title: "Overcast", feed_url: overcast },
-  #     castro: { feed_title: "Castro", feed_url: castro },
-  #     pocket_casts: { feed_title: "Pocket Casts", feed_url: pktc },
-  #     downcast: { feed_title: "Downcast", feed_url: downcast }
-  #   }
-  # end
-
-  # def android
-  #   {
-  #     default: { feed_title: "Default", feed_url: pcast }
-  #   }
-  # end
 
   def replace_feed_scheme(uri, scheme)
     uri.scheme = scheme
@@ -148,4 +111,3 @@ class FeedTranslator
   private :format_feed_with_new_scheme_add_x_callback_url
   # rubocop:enable Style/AccessModifierDeclarations
 end
-# rubocop:enable Metrics/ClassLength
