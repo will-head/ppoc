@@ -13,15 +13,15 @@ describe FeedTranslator do
       end
 
       it "returns expected format for feed://" do
-        expect(translated_feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
+        expect(translated_feed.feed).to eq("feed://example.com/feed")
       end
 
       it "returns expected format for overcast://" do
-        expect(translated_feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+        expect(translated_feed.overcast).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
       end
 
       it "returns expected format for castro://" do
-        expect(translated_feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+        expect(translated_feed.castro).to eq("castro://subscribe/example.com/feed")
       end
     end
 
@@ -33,15 +33,15 @@ describe FeedTranslator do
       end
 
       it "returns expected format for feed://" do
-        expect(translated_feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
+        expect(translated_feed.feed).to eq("feed://example.com/feed")
       end
 
       it "returns expected format for overcast://" do
-        expect(translated_feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=https%3A%2F%2Fexample.com%2Ffeed")
+        expect(translated_feed.overcast).to eq("overcast://x-callback-url/add?url=https%3A%2F%2Fexample.com%2Ffeed")
       end
 
       it "returns expected format for castro://" do
-        expect(translated_feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+        expect(translated_feed.castro).to eq("castro://subscribe/example.com/feed")
       end
     end
 
@@ -53,15 +53,15 @@ describe FeedTranslator do
       end
 
       it "returns expected feed format" do
-        expect(translated_feed.body[:desktop][:rss][:feed_url]).to eq("http://example.com/feed")
+        expect(translated_feed.http).to eq("http://example.com/feed")
       end
 
       it "returns expected format for overcast://" do
-        expect(translated_feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+        expect(translated_feed.overcast).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
       end
 
       it "returns expected format for castro://" do
-        expect(translated_feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+        expect(translated_feed.castro).to eq("castro://subscribe/example.com/feed")
       end
 
     end
@@ -74,15 +74,15 @@ describe FeedTranslator do
       end
 
       it "returns expected format for feed://" do
-        expect(translated_feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
+        expect(translated_feed.feed).to eq("feed://example.com/feed")
       end
 
       it "returns expected format for overcast://" do
-        expect(translated_feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+        expect(translated_feed.overcast).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
       end
 
       it "returns expected format for castro://" do
-        expect(translated_feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+        expect(translated_feed.castro).to eq("castro://subscribe/example.com/feed")
       end
     end
 
@@ -94,15 +94,15 @@ describe FeedTranslator do
       end
 
       it "returns expected format for feed://" do
-        expect(translated_feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
+        expect(translated_feed.feed).to eq("feed://example.com/feed")
       end
 
       it "returns expected format for overcast://" do
-        expect(translated_feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+        expect(translated_feed.overcast).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
       end
 
       it "returns expected format for castro://" do
-        expect(translated_feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+        expect(translated_feed.castro).to eq("castro://subscribe/example.com/feed")
       end
     end
 
@@ -114,15 +114,15 @@ describe FeedTranslator do
       end
 
       it "returns expected format for feed://" do
-        expect(translated_feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
+        expect(translated_feed.feed).to eq("feed://example.com/feed")
       end
 
       it "returns expected format for overcast://" do
-        expect(translated_feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+        expect(translated_feed.overcast).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
       end
 
       it "returns expected format for castro://" do
-        expect(translated_feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+        expect(translated_feed.castro).to eq("castro://subscribe/example.com/feed")
       end
     end
 
@@ -134,15 +134,15 @@ describe FeedTranslator do
       end
 
       it "returns expected format for feed://" do
-        expect(translated_feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
+        expect(translated_feed.feed).to eq("feed://example.com/feed")
       end
 
       it "returns expected format for overcast://" do
-        expect(translated_feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+        expect(translated_feed.overcast).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
       end
 
       it "returns expected format for castro://" do
-        expect(translated_feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+        expect(translated_feed.castro).to eq("castro://subscribe/example.com/feed")
       end
     end
 
@@ -154,15 +154,15 @@ describe FeedTranslator do
       end
 
       it "returns expected format for feed://" do
-        expect(translated_feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
+        expect(translated_feed.feed).to eq("feed://example.com/feed")
       end
 
       it "returns expected format for overcast://" do
-        expect(translated_feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+        expect(translated_feed.overcast).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
       end
 
       it "returns expected format for castro://" do
-        expect(translated_feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+        expect(translated_feed.castro).to eq("castro://subscribe/example.com/feed")
       end
     end
 
@@ -174,15 +174,15 @@ describe FeedTranslator do
       end
 
       it "returns expected format for feed://" do
-        expect(translated_feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
+        expect(translated_feed.feed).to eq("feed://example.com/feed")
       end
 
       it "returns expected format for overcast://" do
-        expect(translated_feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+        expect(translated_feed.overcast).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
       end
 
       it "returns expected format for castro://" do
-        expect(translated_feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+        expect(translated_feed.castro).to eq("castro://subscribe/example.com/feed")
       end
     end
 
@@ -194,15 +194,15 @@ describe FeedTranslator do
       end
 
       it "returns expected format for feed://" do
-        expect(translated_feed.body[:desktop][:default][:feed_url]).to eq("feed://example.com/feed")
+        expect(translated_feed.feed).to eq("feed://example.com/feed")
       end
 
       it "returns expected format for overcast://" do
-        expect(translated_feed.body[:ios][:overcast][:feed_url]).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
+        expect(translated_feed.overcast).to eq("overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed")
       end
 
       it "returns expected format for castro://" do
-        expect(translated_feed.body[:ios][:castro][:feed_url]).to eq("castro://subscribe/example.com/feed")
+        expect(translated_feed.castro).to eq("castro://subscribe/example.com/feed")
       end
     end
 
