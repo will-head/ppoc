@@ -25,7 +25,8 @@ class FeedFormatter
   def invalid_request_body
     {
       status: 422,
-      request: request_key_value   
+      request: request_key_value,
+      title: "Unprocessable Entity"
     }
   end
 
