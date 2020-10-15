@@ -1,4 +1,7 @@
 class FeedFormatter
+  STATUS_OK = 200
+  STATUS_UNPROCESSABLE_ENTITY = 422
+  TITLE_UNPROCESSABLE_ENTITY = "Unprocessable Entity"
 
   def initialize(translated_feed)
     @translated_feed = translated_feed
@@ -14,7 +17,7 @@ class FeedFormatter
 
   def valid_request_body
     {
-      status: 200,
+      status: STATUS_OK,
       request: request_key_value,
       desktop: desktop_key_value,
       ios: ios_key_value,
@@ -24,8 +27,9 @@ class FeedFormatter
 
   def invalid_request_body
     {
-      status: 422,
-      request: request_key_value   
+      status: STATUS_UNPROCESSABLE_ENTITY,
+      request: request_key_value,
+      title: TITLE_UNPROCESSABLE_ENTITY
     }
   end
 

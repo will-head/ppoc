@@ -79,6 +79,7 @@ overcast://x-callback-url/add?url=http%3A%2F%2Fexample.com%2Ffeed
 On success, the above command returns JSON structured like this:
 ```json
 {
+  "status": 200,
   "request": {
     "feed": "http://example.com/feed"
   },
@@ -132,6 +133,17 @@ On success, the above command returns JSON structured like this:
       "feed_url": "pcast://example.com/feed"
     }
   }
+}
+```
+
+If an unsupported feed or invalid feed format is used as input, the following will be returned:
+```json
+{
+  "status": 422,
+  "request": {
+    "feed": "unsupported://example.com/feed"
+  },
+  "title": "Unprocessable Entity"
 }
 ```
 
