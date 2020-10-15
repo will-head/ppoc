@@ -34,10 +34,10 @@ The backend uses Rails and outputs JSON.  It's set to automatically deploy to [h
 ## API
 
 The API includes versioning in the url scheme. The current version is v1, accessible at:  
-https://ppoc.dev/api/v1/
+https://api.ppoc.dev/v1/
 
 Any calls without versioning will redirect to the latest version:  
-https://ppoc.dev/api/
+https://api.ppoc.dev/
 
 The API version is included in the header, for example:  
 version: V1
