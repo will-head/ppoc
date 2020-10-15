@@ -234,7 +234,7 @@ describe FeedFormatter do
     end
 
     describe "#body[:title]" do
-      it "returns 422" do
+      it "returns 'Unprocessable Entity'" do
         expect(formatted_feed.body[:title]).to eq("Unprocessable Entity")
       end
     end
