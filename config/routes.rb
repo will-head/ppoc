@@ -6,8 +6,10 @@ Rails.application.routes.draw do
     resources :feeds, only: [:create]
   end
 
-  namespace :api do
-    scope :module => :v1, &current_api_routes
-    namespace :v1, &current_api_routes
+  constraints :subdomain => 'api' do
+    namespace :api, path: nil do
+      scope :module => :v1, &current_api_routes
+      namespace :v1, &current_api_routes
+    end
   end
 end
