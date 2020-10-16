@@ -149,6 +149,7 @@ If an unsupported feed or invalid feed format is used as input, the following wi
 
 ## Improvements
 
+* Adds support for iTunes ID links as input via [iTunes Search API: Lookup Examples](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/LookupExamples.html)
 * ~~Return status in JSON body~~
 * ~~Return 422 status and Error in JSON for invalid input feed~~
 * ~~Remove redundant tests from FeedsController~~
