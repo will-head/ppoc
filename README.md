@@ -50,7 +50,7 @@ Returns feeds
 
 ```bash
 curl --request POST \
-  --url https://ppoc.dev/api/v1/feeds \
+  --url https://api.ppoc.dev/v1/feeds \
   --header 'content-type: application/json' \
   --data '{
 	"data": {
